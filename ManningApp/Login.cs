@@ -5,8 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Data;
 
 namespace ManningApp
 {
@@ -34,6 +34,7 @@ namespace ManningApp
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            Database databaseObject = new Database();
 
         }
     }
