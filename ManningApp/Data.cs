@@ -9,38 +9,45 @@ namespace Data
 {  
     class Database
     {
-        public  SQLiteConnection con;
+        public  SQLiteConnection connection;
         //database instance constructor and connection string declaration
         public Database()
         {
-            con = new SQLiteConnection("Data Source = manningAppDatabase.db; version=3");            
+            connection = new SQLiteConnection("Data Source = manningAppDatabase.db; version=3");            
         }
 
         //opening connection
         public void OpenConnection()
         {
-            if (con.State != System.Data.ConnectionState.Open)
+            if (connection.State != System.Data.ConnectionState.Open)
             {
-                con.Open();
+                connection.Open();
             }
             else return;
         }
-
         //closing connection
         public void CloseConnection()
         {
-            if (con.State != System.Data.ConnectionState.Closed)
+            if (connection.State != System.Data.ConnectionState.Closed)
             {
-                con.Close();
+                connection.Close();
             }
             else return;
+        }
+    }
+
+    class ManningOfficer
+    {
+        private string manningOfficerName;
+        public void SetName(string name)
+        {
+            manningOfficerName = name;
         }
     }
 
     class TempData
     {
         private string sessionName;
-
         public void SetSessionUser(string name)
         {
             sessionName = name;
