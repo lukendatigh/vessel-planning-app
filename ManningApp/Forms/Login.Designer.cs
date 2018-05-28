@@ -119,7 +119,7 @@
             // 
             this.errorMessage.AutoSize = true;
             this.errorMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.errorMessage.Location = new System.Drawing.Point(8, 379);
+            this.errorMessage.Location = new System.Drawing.Point(8, 377);
             this.errorMessage.Name = "errorMessage";
             this.errorMessage.Size = new System.Drawing.Size(0, 13);
             this.errorMessage.TabIndex = 9;
