@@ -32,7 +32,6 @@ namespace ManningApp
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            bool loginValid = false; 
             string nameField = nameBox.Text;
             string passwordField = passwordBox.Text;
 
@@ -42,47 +41,60 @@ namespace ManningApp
                 errorMessage.Text = "some fields seem empty";
                 return;
             }
-            
 
             //connect to database
             Database database = new Database();
             database.OpenConnection();
 
+            //query string
+            string query = "SELECT * FROM tblManningOfficer " +
+                "WHERE manning_officer_surname = '"+nameField+"' AND password = '"+passwordField+"'";
+            
             try
-            {                
-                string query = ""; //query declaration
-                
-                
-                SQLiteCommand command = new SQLiteCommand();
-                command.CommandText = query;
-                command.Connection = database.con;
-                command.ExecuteNonQuery(); //executing the querry
+            {
+                using (SQLiteCommand command = new SQLiteCommand(query, database.connection))
+                {                    
+                    
+                    /*
+                    command.CommandText = query;
+                    command.Connection = database.con; */
 
-                //I think some things should come here
-
-
-                if (loginValid)
-                {
-                    this.Close();
-                    new DashboardForm();
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        int loginValid = 0; //to store the state of correct login details
+                        if (reader.Read())
+                        {
+                            loginValid ++;
+                        }
+                        if (loginValid == 1) //open main dashboard form when login details are correct
+                        {
+                            DashboardForm dashboard = new DashboardForm();
+                            dashboard.Show();
+                            this.Hide();
+                            database.CloseConnection(); //close connection
+                            return;
+                        }
+                        else //when incorrect details are entered
+                        {
+                            errorMessage.Text = "incorrect username or password";
+                            database.CloseConnection(); //close connection
+                            return;
+                        }
+                    }
+                    
                 }
-                else
-                {
-                    errorMessage.Text = "invalid password";
-                }
-
-                database.CloseConnection();
             }
+
             catch (Exception ex)
-            {                
-                MessageBox.Show(ex.Message);
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 database.CloseConnection();
             } 
-
-
+            
             
         }
         
+
         private void nameBox_TextChanged(object sender, EventArgs e)
         {
             errorMessage.Text = "";
