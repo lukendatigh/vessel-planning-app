@@ -28,84 +28,154 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.seafarerTab = new System.Windows.Forms.TabPage();
-            this.vesselTab = new System.Windows.Forms.TabPage();
-            this.rankTab = new System.Windows.Forms.TabPage();
-            this.planTab = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnPlan = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnView = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnInfo = new System.Windows.Forms.Button();
+            this.btnGlance = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // panel1
             // 
-            this.tabControl1.Controls.Add(this.seafarerTab);
-            this.tabControl1.Controls.Add(this.vesselTab);
-            this.tabControl1.Controls.Add(this.rankTab);
-            this.tabControl1.Controls.Add(this.planTab);
-            this.tabControl1.Location = new System.Drawing.Point(24, 35);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.ShowToolTips = true;
-            this.tabControl1.Size = new System.Drawing.Size(390, 328);
-            this.tabControl1.TabIndex = 0;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.panel1.Controls.Add(this.btnGlance);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnView);
+            this.panel1.Controls.Add(this.btnPlan);
+            this.panel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Location = new System.Drawing.Point(0, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(228, 598);
+            this.panel1.TabIndex = 0;
             // 
-            // seafarerTab
+            // panel2
             // 
-            this.seafarerTab.Location = new System.Drawing.Point(4, 22);
-            this.seafarerTab.Name = "seafarerTab";
-            this.seafarerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.seafarerTab.Size = new System.Drawing.Size(780, 405);
-            this.seafarerTab.TabIndex = 0;
-            this.seafarerTab.Text = "Seafarer";
-            this.seafarerTab.UseVisualStyleBackColor = true;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(960, 10);
+            this.panel2.TabIndex = 1;
             // 
-            // vesselTab
+            // btnPlan
             // 
-            this.vesselTab.Location = new System.Drawing.Point(4, 22);
-            this.vesselTab.Name = "vesselTab";
-            this.vesselTab.Padding = new System.Windows.Forms.Padding(3);
-            this.vesselTab.Size = new System.Drawing.Size(780, 405);
-            this.vesselTab.TabIndex = 1;
-            this.vesselTab.Text = "Vessel";
-            this.vesselTab.UseVisualStyleBackColor = true;
+            this.btnPlan.FlatAppearance.BorderSize = 0;
+            this.btnPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlan.Font = new System.Drawing.Font("Century Gothic", 18.17476F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlan.Location = new System.Drawing.Point(24, 201);
+            this.btnPlan.Name = "btnPlan";
+            this.btnPlan.Size = new System.Drawing.Size(204, 39);
+            this.btnPlan.TabIndex = 0;
+            this.btnPlan.Text = "Plan";
+            this.btnPlan.UseVisualStyleBackColor = true;
             // 
-            // rankTab
+            // btnClose
             // 
-            this.rankTab.Location = new System.Drawing.Point(4, 22);
-            this.rankTab.Name = "rankTab";
-            this.rankTab.Size = new System.Drawing.Size(780, 405);
-            this.rankTab.TabIndex = 2;
-            this.rankTab.Text = "Rank";
-            this.rankTab.UseVisualStyleBackColor = true;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(916, 10);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(43, 42);
+            this.btnClose.TabIndex = 2;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // planTab
+            // btnSettings
             // 
-            this.planTab.Location = new System.Drawing.Point(4, 22);
-            this.planTab.Name = "planTab";
-            this.planTab.Size = new System.Drawing.Size(382, 302);
-            this.planTab.TabIndex = 3;
-            this.planTab.Text = "Plan";
-            this.planTab.UseVisualStyleBackColor = true;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.Location = new System.Drawing.Point(869, 10);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(43, 42);
+            this.btnSettings.TabIndex = 3;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // btnView
+            // 
+            this.btnView.FlatAppearance.BorderSize = 0;
+            this.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnView.Font = new System.Drawing.Font("Century Gothic", 18.17476F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.Location = new System.Drawing.Point(24, 264);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(204, 39);
+            this.btnView.TabIndex = 1;
+            this.btnView.Text = "View";
+            this.btnView.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 18.17476F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(24, 328);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(204, 39);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Edit";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnInfo
+            // 
+            this.btnInfo.FlatAppearance.BorderSize = 0;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.Image")));
+            this.btnInfo.Location = new System.Drawing.Point(822, 10);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(43, 42);
+            this.btnInfo.TabIndex = 4;
+            this.btnInfo.UseVisualStyleBackColor = true;
+            // 
+            // btnGlance
+            // 
+            this.btnGlance.FlatAppearance.BorderSize = 0;
+            this.btnGlance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGlance.Font = new System.Drawing.Font("Century Gothic", 18.17476F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGlance.Location = new System.Drawing.Point(24, 138);
+            this.btnGlance.Name = "btnGlance";
+            this.btnGlance.Size = new System.Drawing.Size(204, 39);
+            this.btnGlance.TabIndex = 3;
+            this.btnGlance.Text = "Glance";
+            this.btnGlance.UseVisualStyleBackColor = true;
             // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 439);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(960, 600);
+            this.Controls.Add(this.btnInfo);
+            this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DashboardForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
-            this.tabControl1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage seafarerTab;
-        private System.Windows.Forms.TabPage vesselTab;
-        private System.Windows.Forms.TabPage rankTab;
-        private System.Windows.Forms.TabPage planTab;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnPlan;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Button btnInfo;
+        private System.Windows.Forms.Button btnGlance;
     }
 }
