@@ -32,6 +32,7 @@ namespace ManningApp
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            bool loginValid = false; //to store the state of correct login details
             string nameField = nameBox.Text;
             string passwordField = passwordBox.Text;
 
@@ -60,19 +61,22 @@ namespace ManningApp
                     command.Connection = database.con; */
 
                     using (SQLiteDataReader reader = command.ExecuteReader())
-                    {
-                        int loginValid = 0; //to store the state of correct login details
+                    {                        
                         if (reader.Read())
                         {
-                            loginValid ++;
-                        }
-                        if (loginValid == 1) //open main dashboard form when login details are correct
-                        {
-                            DashboardForm dashboard = new DashboardForm();
-                            dashboard.Show();
+                            loginValid = true;
                             this.Hide();
-                            database.CloseConnection(); //close connection
-                            return;
+
+                            //saving the logged in session user
+                            TempData sessionID = new TempData();                      
+                            sessionID.SetSessionUser(UpperCaseFirst(nameField));
+
+                            if (loginValid) //open main dashboard form when login details are correct
+                            {
+                                DashboardForm dashboard = new DashboardForm();
+                                dashboard.Show();
+                                database.CloseConnection(); //close connection 
+                            }
                         }
                         else //when incorrect details are entered
                         {
@@ -80,8 +84,9 @@ namespace ManningApp
                             database.CloseConnection(); //close connection
                             return;
                         }
-                    }
-                    
+
+
+                    }             
                 }
             }
 
@@ -89,8 +94,7 @@ namespace ManningApp
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 database.CloseConnection();
-            } 
-            
+            }             
             
         }
         
@@ -98,10 +102,21 @@ namespace ManningApp
         private void nameBox_TextChanged(object sender, EventArgs e)
         {
             errorMessage.Text = "";
+            passwordBox.Text = "";
         }
         private void passwordBox_TextChanged(object sender, EventArgs e)
         {
             errorMessage.Text = "";
+        }
+
+
+        //a method to make first letter in a string caps
+        private string UpperCaseFirst(string s)
+        {
+            //check if string is empty
+            if (string.IsNullOrEmpty(s))            
+                return string.Empty;            
+            return char.ToUpper(s[0]) + s.Substring(1);
         }
     }
 }
