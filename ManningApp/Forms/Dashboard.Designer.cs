@@ -30,122 +30,108 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnPeek = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnView = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.btnPlan = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.panel1.Controls.Add(this.btnPeek);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btnView);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.btnHome);
             this.panel1.Controls.Add(this.btnPlan);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Location = new System.Drawing.Point(0, 3);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(183, 598);
+            this.panel1.Size = new System.Drawing.Size(183, 601);
             this.panel1.TabIndex = 0;
             // 
-            // btnPeek
+            // btnHome
             // 
-            this.btnPeek.FlatAppearance.BorderSize = 0;
-            this.btnPeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPeek.Font = new System.Drawing.Font("Century Gothic", 11.8835F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPeek.Location = new System.Drawing.Point(16, 129);
-            this.btnPeek.Name = "btnPeek";
-            this.btnPeek.Size = new System.Drawing.Size(167, 50);
-            this.btnPeek.TabIndex = 3;
-            this.btnPeek.Text = "Peek";
-            this.btnPeek.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.8835F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(16, 291);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(167, 50);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnView
-            // 
-            this.btnView.FlatAppearance.BorderSize = 0;
-            this.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnView.Font = new System.Drawing.Font("Century Gothic", 11.8835F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.Location = new System.Drawing.Point(16, 237);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(167, 50);
-            this.btnView.TabIndex = 1;
-            this.btnView.Text = "View";
-            this.btnView.UseVisualStyleBackColor = true;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Location = new System.Drawing.Point(0, 129);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(183, 35);
+            this.btnHome.TabIndex = 3;
+            this.btnHome.Text = "HOME";
+            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.UseVisualStyleBackColor = true;
             // 
             // btnPlan
             // 
             this.btnPlan.FlatAppearance.BorderSize = 0;
             this.btnPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlan.Font = new System.Drawing.Font("Century Gothic", 11.8835F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlan.Location = new System.Drawing.Point(16, 183);
+            this.btnPlan.Font = new System.Drawing.Font("Segoe UI", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlan.Location = new System.Drawing.Point(0, 167);
             this.btnPlan.Name = "btnPlan";
-            this.btnPlan.Size = new System.Drawing.Size(167, 50);
+            this.btnPlan.Size = new System.Drawing.Size(183, 35);
             this.btnPlan.TabIndex = 0;
-            this.btnPlan.Text = "Plan";
+            this.btnPlan.Text = "PLAN";
+            this.btnPlan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPlan.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(182, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(960, 10);
+            this.panel2.Size = new System.Drawing.Size(778, 43);
             this.panel2.TabIndex = 1;
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(916, 10);
+            this.btnClose.Location = new System.Drawing.Point(916, 1);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(43, 42);
             this.btnClose.TabIndex = 2;
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSettings
             // 
+            this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
             this.btnSettings.FlatAppearance.BorderSize = 0;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(869, 10);
+            this.btnSettings.Location = new System.Drawing.Point(869, 1);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(43, 42);
             this.btnSettings.TabIndex = 3;
-            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnInfo
             // 
+            this.btnInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
             this.btnInfo.FlatAppearance.BorderSize = 0;
             this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.Image")));
-            this.btnInfo.Location = new System.Drawing.Point(822, 10);
+            this.btnInfo.Location = new System.Drawing.Point(822, 1);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(43, 42);
             this.btnInfo.TabIndex = 4;
-            this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(142)))), ((int)(((byte)(108)))));
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(183, 43);
+            this.panel3.TabIndex = 2;
             // 
             // DashboardForm
             // 
@@ -174,9 +160,8 @@
         private System.Windows.Forms.Button btnPlan;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnInfo;
-        private System.Windows.Forms.Button btnPeek;
+        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Panel panel3;
     }
 }
