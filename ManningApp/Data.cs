@@ -13,7 +13,8 @@ namespace Data
         //database instance constructor and connection string declaration
         public Database()
         {
-            connection = new SQLiteConnection("Data Source = manningAppDatabase.db; version=3");            
+            connection = new SQLiteConnection("Data Source = manningAppDatabase.db; " +
+                "version=3");            
         }
 
         //opening connection
