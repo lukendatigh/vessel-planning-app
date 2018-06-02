@@ -16,6 +16,27 @@ namespace ManningApp
             InitializeComponent();
         }
 
+        //make form moveable
+        private bool mouseDown;
+        private Point lastLocation;
+        private void DashboardForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+        private void DashboardForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point((this.Location.X - lastLocation.X) 
+                    + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+                this.Update();
+            }
+        }
+
+
+
+        //close button event
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
