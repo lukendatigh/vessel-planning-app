@@ -69,7 +69,7 @@ namespace ManningApp
 
                             //saving the logged in session user
                             TempData sessionID = new TempData();                      
-                            sessionID.SetSessionUser(UpperCaseFirst(nameField));
+                            sessionID.SetSessionUser(nameField.ToUpper());
 
                             if (loginValid) //open main dashboard form when login details are correct
                             {
@@ -84,8 +84,6 @@ namespace ManningApp
                             database.CloseConnection(); //close connection
                             return;
                         }
-
-
                     }             
                 }
             }

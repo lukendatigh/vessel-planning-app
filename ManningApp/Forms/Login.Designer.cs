@@ -57,8 +57,9 @@
             // 
             // nameBox
             // 
+            this.nameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameBox.Location = new System.Drawing.Point(9, 296);
+            this.nameBox.Location = new System.Drawing.Point(10, 298);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(245, 22);
             this.nameBox.TabIndex = 1;
@@ -66,8 +67,9 @@
             // 
             // passwordBox
             // 
+            this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordBox.Location = new System.Drawing.Point(9, 349);
+            this.passwordBox.Location = new System.Drawing.Point(10, 350);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(245, 22);
             this.passwordBox.TabIndex = 2;
