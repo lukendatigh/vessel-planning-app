@@ -1,2 +1,2 @@
 # Manning-App
-A vessel manning desktop app written in C#
+A desktop vessel manning app implemented in C# using Winforms and SQLite3
