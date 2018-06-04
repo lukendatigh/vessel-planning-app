@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using Data;
+using LookAndFeel;
 
 namespace ManningApp
 {
@@ -99,6 +100,8 @@ namespace ManningApp
 
         private void nameBox_TextChanged(object sender, EventArgs e)
         {
+           
+
             errorMessage.Text = "";
             passwordBox.Text = "";
         }

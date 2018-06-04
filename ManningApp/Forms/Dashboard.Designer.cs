@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.slidePanel = new System.Windows.Forms.Panel();
             this.lblEdit = new System.Windows.Forms.Label();
             this.btnRank = new System.Windows.Forms.Button();
             this.btnSeafarer = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.panel1.Controls.Add(this.slidePanel);
             this.panel1.Controls.Add(this.lblEdit);
             this.panel1.Controls.Add(this.btnRank);
             this.panel1.Controls.Add(this.btnSeafarer);
@@ -64,12 +66,20 @@
             this.panel1.Size = new System.Drawing.Size(183, 601);
             this.panel1.TabIndex = 0;
             // 
+            // slidePanel
+            // 
+            this.slidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
+            this.slidePanel.Location = new System.Drawing.Point(0, 169);
+            this.slidePanel.Name = "slidePanel";
+            this.slidePanel.Size = new System.Drawing.Size(10, 33);
+            this.slidePanel.TabIndex = 5;
+            // 
             // lblEdit
             // 
             this.lblEdit.AutoSize = true;
             this.lblEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEdit.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblEdit.Location = new System.Drawing.Point(5, 322);
+            this.lblEdit.Location = new System.Drawing.Point(13, 326);
             this.lblEdit.Name = "lblEdit";
             this.lblEdit.Size = new System.Drawing.Size(38, 19);
             this.lblEdit.TabIndex = 9;
@@ -80,46 +90,52 @@
             this.btnRank.FlatAppearance.BorderSize = 0;
             this.btnRank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRank.Font = new System.Drawing.Font("Segoe UI Semibold", 11.18447F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRank.Location = new System.Drawing.Point(0, 424);
+            this.btnRank.Image = ((System.Drawing.Image)(resources.GetObject("btnRank.Image")));
+            this.btnRank.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRank.Location = new System.Drawing.Point(10, 424);
             this.btnRank.Name = "btnRank";
-            this.btnRank.Size = new System.Drawing.Size(183, 35);
+            this.btnRank.Size = new System.Drawing.Size(173, 35);
             this.btnRank.TabIndex = 8;
-            this.btnRank.Text = "Rank";
-            this.btnRank.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRank.Text = "Rank          ";
             this.btnRank.UseVisualStyleBackColor = true;
+            this.btnRank.Click += new System.EventHandler(this.btnRank_Click);
             // 
             // btnSeafarer
             // 
             this.btnSeafarer.FlatAppearance.BorderSize = 0;
             this.btnSeafarer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeafarer.Font = new System.Drawing.Font("Segoe UI Semibold", 11.18447F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeafarer.Location = new System.Drawing.Point(0, 348);
+            this.btnSeafarer.Image = ((System.Drawing.Image)(resources.GetObject("btnSeafarer.Image")));
+            this.btnSeafarer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSeafarer.Location = new System.Drawing.Point(10, 348);
             this.btnSeafarer.Name = "btnSeafarer";
-            this.btnSeafarer.Size = new System.Drawing.Size(183, 35);
+            this.btnSeafarer.Size = new System.Drawing.Size(173, 35);
             this.btnSeafarer.TabIndex = 7;
-            this.btnSeafarer.Text = "Seafarer";
-            this.btnSeafarer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSeafarer.Text = "Seafarer      ";
             this.btnSeafarer.UseVisualStyleBackColor = true;
+            this.btnSeafarer.Click += new System.EventHandler(this.btnSeafarer_Click);
             // 
             // btnVessel
             // 
             this.btnVessel.FlatAppearance.BorderSize = 0;
             this.btnVessel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVessel.Font = new System.Drawing.Font("Segoe UI Semibold", 11.18447F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVessel.Location = new System.Drawing.Point(0, 386);
+            this.btnVessel.Image = ((System.Drawing.Image)(resources.GetObject("btnVessel.Image")));
+            this.btnVessel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVessel.Location = new System.Drawing.Point(10, 386);
             this.btnVessel.Name = "btnVessel";
-            this.btnVessel.Size = new System.Drawing.Size(183, 35);
+            this.btnVessel.Size = new System.Drawing.Size(173, 35);
             this.btnVessel.TabIndex = 6;
-            this.btnVessel.Text = "Vessel";
-            this.btnVessel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVessel.Text = "Vessel         ";
             this.btnVessel.UseVisualStyleBackColor = true;
+            this.btnVessel.Click += new System.EventHandler(this.btnVessel_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Location = new System.Drawing.Point(5, 144);
+            this.label1.Location = new System.Drawing.Point(13, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 19);
             this.label1.TabIndex = 5;
@@ -130,13 +146,15 @@
             this.btnView.FlatAppearance.BorderSize = 0;
             this.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnView.Font = new System.Drawing.Font("Segoe UI Semibold", 11.18447F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.Location = new System.Drawing.Point(0, 244);
+            this.btnView.Image = ((System.Drawing.Image)(resources.GetObject("btnView.Image")));
+            this.btnView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnView.Location = new System.Drawing.Point(10, 245);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(183, 35);
+            this.btnView.Size = new System.Drawing.Size(173, 35);
             this.btnView.TabIndex = 4;
-            this.btnView.Text = "View";
-            this.btnView.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnView.Text = "View           ";
             this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // panel3
             // 
@@ -151,33 +169,37 @@
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 11.18447F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.Location = new System.Drawing.Point(0, 168);
+            this.btnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashboard.Image")));
+            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.Location = new System.Drawing.Point(10, 169);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(183, 35);
+            this.btnDashboard.Size = new System.Drawing.Size(173, 35);
             this.btnDashboard.TabIndex = 3;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.Text = "Dashboard  ";
             this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnPlan
             // 
             this.btnPlan.FlatAppearance.BorderSize = 0;
             this.btnPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlan.Font = new System.Drawing.Font("Segoe UI Semibold", 11.18447F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlan.Location = new System.Drawing.Point(0, 206);
+            this.btnPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnPlan.Image")));
+            this.btnPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPlan.Location = new System.Drawing.Point(10, 207);
             this.btnPlan.Name = "btnPlan";
-            this.btnPlan.Size = new System.Drawing.Size(183, 35);
+            this.btnPlan.Size = new System.Drawing.Size(173, 35);
             this.btnPlan.TabIndex = 0;
-            this.btnPlan.Text = "Plan";
-            this.btnPlan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPlan.Text = "Plan            ";
             this.btnPlan.UseVisualStyleBackColor = true;
+            this.btnPlan.Click += new System.EventHandler(this.btnPlan_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
             this.panel2.Location = new System.Drawing.Point(182, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(778, 43);
+            this.panel2.Size = new System.Drawing.Size(783, 43);
             this.panel2.TabIndex = 1;
             // 
             // btnClose
@@ -186,7 +208,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(916, 1);
+            this.btnClose.Location = new System.Drawing.Point(919, 1);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(43, 42);
             this.btnClose.TabIndex = 2;
@@ -199,7 +221,7 @@
             this.btnSettings.FlatAppearance.BorderSize = 0;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(869, 1);
+            this.btnSettings.Location = new System.Drawing.Point(872, 1);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(43, 42);
             this.btnSettings.TabIndex = 3;
@@ -212,7 +234,7 @@
             this.btnInfo.FlatAppearance.BorderSize = 0;
             this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.Image")));
-            this.btnInfo.Location = new System.Drawing.Point(822, 1);
+            this.btnInfo.Location = new System.Drawing.Point(825, 1);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(43, 42);
             this.btnInfo.TabIndex = 4;
@@ -223,7 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 600);
+            this.ClientSize = new System.Drawing.Size(963, 600);
             this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnClose);
@@ -256,5 +278,6 @@
         private System.Windows.Forms.Button btnRank;
         private System.Windows.Forms.Button btnSeafarer;
         private System.Windows.Forms.Button btnVessel;
+        private System.Windows.Forms.Panel slidePanel;
     }
 }
