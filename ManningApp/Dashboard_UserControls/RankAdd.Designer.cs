@@ -36,7 +36,7 @@
             // 
             // btnRankAdd
             // 
-            this.btnRankAdd.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnRankAdd.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnRankAdd.FlatAppearance.BorderSize = 0;
             this.btnRankAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRankAdd.Font = new System.Drawing.Font("Segoe UI", 9.087379F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -45,7 +45,7 @@
             this.btnRankAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRankAdd.Location = new System.Drawing.Point(42, 39);
             this.btnRankAdd.Name = "btnRankAdd";
-            this.btnRankAdd.Size = new System.Drawing.Size(100, 35);
+            this.btnRankAdd.Size = new System.Drawing.Size(105, 35);
             this.btnRankAdd.TabIndex = 0;
             this.btnRankAdd.Text = "Add Rank";
             this.btnRankAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -62,7 +62,7 @@
             this.btnRankEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRankEdit.Location = new System.Drawing.Point(169, 39);
             this.btnRankEdit.Name = "btnRankEdit";
-            this.btnRankEdit.Size = new System.Drawing.Size(100, 35);
+            this.btnRankEdit.Size = new System.Drawing.Size(105, 35);
             this.btnRankEdit.TabIndex = 1;
             this.btnRankEdit.Text = "Edit Rank";
             this.btnRankEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -79,7 +79,7 @@
             this.btnRankDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRankDelete.Location = new System.Drawing.Point(296, 39);
             this.btnRankDelete.Name = "btnRankDelete";
-            this.btnRankDelete.Size = new System.Drawing.Size(115, 35);
+            this.btnRankDelete.Size = new System.Drawing.Size(120, 35);
             this.btnRankDelete.TabIndex = 2;
             this.btnRankDelete.Text = "Delete Rank";
             this.btnRankDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
