@@ -11,9 +11,17 @@ namespace ManningApp
 {
     public partial class DashboardForm : Form
     {
+        //custom form color
+        Color selectedColor = Color.FromArgb(25, 140, 108);
+        Color sideDefault = Color.FromArgb(37, 37, 38);
+        
         public DashboardForm()
         {
             InitializeComponent();
+
+            slidePanel.Height = btnDashboard.Height;
+            slidePanel.Top = btnDashboard.Top;
+            btnDashboard.BackColor = selectedColor;
         }
 
         //make form moveable
@@ -51,6 +59,87 @@ namespace ManningApp
         private void btnInfo_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            slidePanel.Height = btnDashboard.Height;
+            slidePanel.Top = btnDashboard.Top;
+            btnDashboard.BackColor = selectedColor;
+
+            //find a better way to do this
+            btnPlan.BackColor = sideDefault;
+            btnView.BackColor = sideDefault;
+            btnSeafarer.BackColor = sideDefault;
+            btnVessel.BackColor = sideDefault;
+            btnRank.BackColor = sideDefault;
+        }
+        private void btnPlan_Click(object sender, EventArgs e)
+        {
+            slidePanel.Height = btnPlan.Height;
+            slidePanel.Top = btnPlan.Top;
+            btnPlan.BackColor = selectedColor;
+
+            //find a better way to do this
+            btnDashboard.BackColor = sideDefault;
+            btnView.BackColor = sideDefault;
+            btnSeafarer.BackColor = sideDefault;
+            btnVessel.BackColor = sideDefault;
+            btnRank.BackColor = sideDefault;
+
+        }
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            slidePanel.Height = btnView.Height;
+            slidePanel.Top = btnView.Top;
+            btnView.BackColor = selectedColor;
+
+            //find a better way to do this
+            btnDashboard.BackColor = sideDefault;
+            btnPlan.BackColor = sideDefault;
+            btnSeafarer.BackColor = sideDefault;
+            btnVessel.BackColor = sideDefault;
+            btnRank.BackColor = sideDefault;
+        }
+        private void btnSeafarer_Click(object sender, EventArgs e)
+        {
+            slidePanel.Height = btnSeafarer.Height;
+            slidePanel.Top = btnSeafarer.Top;
+            btnSeafarer.BackColor = selectedColor;
+
+            //find a better way to do this
+            btnDashboard.BackColor = sideDefault;
+            btnPlan.BackColor = sideDefault;
+            btnView.BackColor = sideDefault;
+            btnVessel.BackColor = sideDefault;
+            btnRank.BackColor = sideDefault;
+        }
+        private void btnVessel_Click(object sender, EventArgs e)
+        {
+            slidePanel.Height = btnVessel.Height;
+            slidePanel.Top = btnVessel.Top;
+            btnVessel.BackColor = selectedColor;
+
+            //find a better way to do this
+            btnDashboard.BackColor = sideDefault;
+            btnPlan.BackColor = sideDefault;
+            btnView.BackColor = sideDefault;
+            btnSeafarer.BackColor = sideDefault;
+            btnRank.BackColor = sideDefault;
+        }
+        private void btnRank_Click(object sender, EventArgs e)
+        {
+            slidePanel.Height = btnRank.Height;
+            slidePanel.Top = btnRank.Top;
+            btnRank.BackColor = selectedColor;
+
+            //find a better way to do this
+            btnDashboard.BackColor = sideDefault;
+            btnPlan.BackColor = sideDefault;
+            btnView.BackColor = sideDefault;
+            btnSeafarer.BackColor = sideDefault;
+            btnVessel.BackColor = sideDefault;
         }
     }
 }
