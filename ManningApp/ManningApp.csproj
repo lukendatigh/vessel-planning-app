@@ -78,6 +78,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dashboard_UserControls\RankAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard_UserControls\RankAdd.Designer.cs">
+      <DependentUpon>RankAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     <Compile Include="LookAndFeel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dashboard_UserControls\RankAdd.resx">
+      <DependentUpon>RankAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>

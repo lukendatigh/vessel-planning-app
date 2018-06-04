@@ -99,9 +99,7 @@ namespace ManningApp
         
 
         private void nameBox_TextChanged(object sender, EventArgs e)
-        {
-           
-
+        {   
             errorMessage.Text = "";
             passwordBox.Text = "";
         }

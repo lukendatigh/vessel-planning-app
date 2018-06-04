@@ -18,11 +18,12 @@ namespace ManningApp
         public DashboardForm()
         {
             InitializeComponent();
-
+            
             slidePanel.Height = btnDashboard.Height;
             slidePanel.Top = btnDashboard.Top;
             btnDashboard.BackColor = selectedColor;
         }
+
 
         //make form moveable
         private bool mouseDown;
@@ -42,6 +43,16 @@ namespace ManningApp
             }
         }
 
+
+        private void btnClose_MouseEnter(object sender, EventArgs e)
+        {
+            this.btnClose.BackColor = Color.Red;
+        }
+
+        private void btnClose_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnClose.BackColor = Color.Transparent;
+        }
 
 
         //close button event
@@ -141,5 +152,6 @@ namespace ManningApp
             btnSeafarer.BackColor = sideDefault;
             btnVessel.BackColor = sideDefault;
         }
+
     }
 }
