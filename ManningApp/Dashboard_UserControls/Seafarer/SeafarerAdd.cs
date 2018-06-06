@@ -69,8 +69,7 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             }
 
             database.CloseConnection(); //close connection
-            makeEmpty(); //clear boxes
-            
+            makeEmpty(); //clear boxes            
         }
 
 

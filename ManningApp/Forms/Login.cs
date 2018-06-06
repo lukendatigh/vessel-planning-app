@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using Data;
-using LookAndFeel;
 
 namespace ManningApp
 {
@@ -55,8 +48,7 @@ namespace ManningApp
             try
             {
                 using (SQLiteCommand command = new SQLiteCommand(query, database.connection))
-                {                    
-                    
+                {                   
                     /*
                     command.CommandText = query;
                     command.Connection = database.con; */
