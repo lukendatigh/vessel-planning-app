@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using Data;
@@ -31,13 +25,15 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             tooltip.SetToolTip(othernamesBox, "enter seafarer's other names");
             tooltip.SetToolTip(comboRank, "select seafarer's current rank");
             tooltip.SetToolTip(contractBox, "enter seafarer's current contract");
+
+            loadRankComboboxData(); //load data to rank combobox
         }
 
         private void btnSaveSeafarer_Click(object sender, EventArgs e)
         {
             //connect to database
             Database database = new Database();
-            database.OpenConnection();
+            database.OpenConnection(); // open connection
 
             //texbox items to string
             string surnameField, othernamesField, rankField, contractField;
@@ -45,11 +41,10 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             othernamesField = othernamesBox.Text.Trim();
             rankField = comboRank.Text;
             contractField = contractBox.Text.Trim();
-            
 
             //checking for empty fields 
             if (surnameField == "" || othernamesField == "" ||
-                rankField == "" && contractField == "")
+                rankField == "" || contractField == "")
             {
                 errorMessage.Text = "some fields seem empty";
                 return;
@@ -60,15 +55,52 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                "VALUES ('"+surnameField+"', '"+othernamesField+"', " +
                "'"+rankField+"', '"+contractField+"')";
 
-            SQLiteCommand command = new SQLiteCommand(query, database.connection);
-            command.ExecuteNonQuery(); //execute adtabase command
+            try
+            {
+                using (SQLiteCommand command = new SQLiteCommand(query, database.connection))
+                {
+                    command.ExecuteNonQuery(); //execute database command
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                database.CloseConnection();
+            }
 
             database.CloseConnection(); //close connection
+            makeEmpty(); //clear boxes
+            
+        }
 
+
+
+        //method toload data into rank combobox
+        private void loadRankComboboxData()
+        {
+            Database database = new Database();
+            database.OpenConnection();
+
+            string query = "SELECT rank_name FROM tblRank";
+
+            SQLiteCommand command = new SQLiteCommand(query, database.connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())   //loop reader and fill the combobox
+            {
+                comboRank.Items.Add(reader["rank_name"].ToString());
+            }
 
         }
 
-        
+        //method to clear boxes method
+        private void makeEmpty()
+        {
+            surnameBox.Text = "";
+            othernamesBox.Text = "";
+            comboRank.Text = "";
+            contractBox.Text = "";
+        }
+
         private void surnameBox_TextChanged(object sender, EventArgs e)
         {
             errorMessage.Text = "";
