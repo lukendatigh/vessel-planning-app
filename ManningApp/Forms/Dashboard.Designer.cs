@@ -40,10 +40,14 @@
             this.btnDashboard = new System.Windows.Forms.Button();
             this.btnPlan = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.seafarerAdd1 = new ManningApp.Dashboard_UserControls.Seafarer.SeafarerAdd();
+            this.rankMenu1 = new ManningApp.Dashboard_Form_UserControls.RankMenu();
+            this.vesselMenu1 = new ManningApp.Dashboard_UserControls.VesselMenu();
+            this.seafarerMenu1 = new ManningApp.Dashboard_UserControls.SeafarerMenu();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -195,6 +199,17 @@
             this.panel2.Size = new System.Drawing.Size(965, 43);
             this.panel2.TabIndex = 1;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 13.98058F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(7, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(162, 23);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Vessel Planning";
+            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
@@ -234,22 +249,43 @@
             this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
-            // label2
+            // seafarerAdd1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 13.98058F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(7, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 23);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Vessel Planning";
+            this.seafarerAdd1.Location = new System.Drawing.Point(182, 119);
+            this.seafarerAdd1.Name = "seafarerAdd1";
+            this.seafarerAdd1.Size = new System.Drawing.Size(757, 450);
+            this.seafarerAdd1.TabIndex = 6;
+            // 
+            // rankMenu1
+            // 
+            this.rankMenu1.Location = new System.Drawing.Point(182, 45);
+            this.rankMenu1.Name = "rankMenu1";
+            this.rankMenu1.Size = new System.Drawing.Size(780, 80);
+            this.rankMenu1.TabIndex = 5;
+            // 
+            // vesselMenu1
+            // 
+            this.vesselMenu1.Location = new System.Drawing.Point(182, 45);
+            this.vesselMenu1.Name = "vesselMenu1";
+            this.vesselMenu1.Size = new System.Drawing.Size(780, 80);
+            this.vesselMenu1.TabIndex = 7;
+            // 
+            // seafarerMenu1
+            // 
+            this.seafarerMenu1.Location = new System.Drawing.Point(182, 45);
+            this.seafarerMenu1.Name = "seafarerMenu1";
+            this.seafarerMenu1.Size = new System.Drawing.Size(780, 80);
+            this.seafarerMenu1.TabIndex = 8;
             // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 600);
+            this.Controls.Add(this.seafarerMenu1);
+            this.Controls.Add(this.vesselMenu1);
+            this.Controls.Add(this.seafarerAdd1);
+            this.Controls.Add(this.rankMenu1);
             this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnClose);
@@ -285,5 +321,9 @@
         private System.Windows.Forms.Button btnVessel;
         private System.Windows.Forms.Panel slidePanel;
         private System.Windows.Forms.Label label2;
+        private Dashboard_Form_UserControls.RankMenu rankMenu1;
+        private Dashboard_UserControls.Seafarer.SeafarerAdd seafarerAdd1;
+        private Dashboard_UserControls.VesselMenu vesselMenu1;
+        private Dashboard_UserControls.SeafarerMenu seafarerMenu1;
     }
 }
