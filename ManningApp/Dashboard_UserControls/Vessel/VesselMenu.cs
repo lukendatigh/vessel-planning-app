@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ManningApp.Dashboard_Form_UserControls
+namespace ManningApp.Dashboard_UserControls
 {
-    public partial class RankAdd : UserControl
+    public partial class VesselMenu : UserControl
     {
-        public RankAdd()
+        public VesselMenu()
         {
             InitializeComponent();
         }

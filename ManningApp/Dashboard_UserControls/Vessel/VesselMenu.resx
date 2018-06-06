@@ -118,29 +118,29 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnRankAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnVesselDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAABTSURBVEhLYxgFgwf8//8/CYShXOoBoKGvQRjKpR4YNRgOKDYYqBkU+2BD0PBfKMYmRzi1gBSh
-        aYJhygzGBWCGQLnUA6MGwwEtDaZNITQKyAQMDAC/tcchkRwfWAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAABGdBTUEAALGPC/xhBQAAAJdJREFUOE/t
+        kLENwjAQRV0mAyC69GSJJMuwAjsxBVU2yADUSDRQx7zDHykScS4NBVKe9Ar73rlw+E9ijB2eJ7Ya+RCX
+        OMgrjjjFznb/aUqtfsOwwAv2eMP7jHZvc+sKrc5DUOFphZVW8hC1uAb//yxKrcv2mLAotS7bY4KoSa1L
+        o5U8RHt8vvM8D9xpZRnCGo8LHpT+ihBe9fCHi/vsKnIAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnRankEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnVesselEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAADtSURBVDhPxZI9DgFRGEXHX4REKaKyAGsRC9AoRME6hEohJBqJaAjRUSrtQCt24jnfyzcJM5N5
-        j8ZJTjPv3juTvAn+jjEmh20s66PfYKCARxSuWNGj76Fcx4csKRcs6bEfFDI4xw428I4hLY25IZzHra0Z
-        88QB1vCG8oKMRtMhKEM7fCccrGJWo+lIEFeYxFRjbgjLF+1tLc5IY24Iy/UfbC3OWGNuCKcNTTTmhvD7
-        Dxllht63VsSTtBL46vpl6CytBBboNyQQ7tlanA3mNOYHhaGtfrJE/y8KoRQdW6Pfnx2FYhP7ahfzevQv
-        guAFK43GIeCn59wAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAABGdBTUEAALGPC/xhBQAAAO1JREFUOE/F
+        kj0OAVEYRcdfhEQporIAaxEL0ChEwTqESiEkGoloCNFRKu1AK3biOd/LNwkzk3mPxklOM+/eO5O8Cf6O
+        MSaHbSzro99goIBHFK5Y0aPvoVzHhywpFyzpsR8UMjjHDjbwjiEtjbkhnMetrRnzxAHW8IbygoxG0yEo
+        Qzt8JxysYlaj6UgQV5jEVGNuCMsX7W0tzkhjbgjL9R9sLc5YY24Ipw1NNOaG8PsPGWWG3rdWxJO0Evjq
+        +mXoLK0EFug3JBDu2VqcDeY05geFoa1+skT/LwqhFB1bo9+fHYViE/tqF/N69C+C4AUrjcYh4Kfn3AAA
+        AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnRankDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnVesselAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAACXSURBVDhP7ZCxDcIwEEVdJgMguvRkiSTLsAI7MQVVNsgA1Eg0UMe8wx8pEnEuDQVSnvQK+965
-        cPhPYowdnie2GvkQlzjIK444xc52/2lKrX7DsMAL9njD+4x2b3PrCq3OQ1DhaYWVVvIQtbgG//8sSq3L
-        9piwKLUu22OCqEmtS6OVPER7fL7zPA/caWUZwhqPCx6U/ooQXvXwh4v77CpyAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAFNJREFUSEtj
+        GAWDB/z//z8JhKFc6gGgoa9BGMqlHhg1GA4oNhioGRT7YEPQ8F8oxiZHOLWAFKFpgmHKDMYFYIZAudQD
+        owbDAS0Npk0hNArIBAwMAL+1xyGRHB9YAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

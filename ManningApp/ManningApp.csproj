@@ -56,8 +56,14 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -78,11 +84,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dashboard_UserControls\RankAdd.cs">
+    <Compile Include="Dashboard_UserControls\Rank\RankAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Dashboard_UserControls\RankAdd.Designer.cs">
+    <Compile Include="Dashboard_UserControls\Rank\RankAdd.Designer.cs">
       <DependentUpon>RankAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard_UserControls\Rank\RankMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard_UserControls\Rank\RankMenu.Designer.cs">
+      <DependentUpon>RankMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard_UserControls\Seafarer\SeafarerAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard_UserControls\Seafarer\SeafarerAdd.Designer.cs">
+      <DependentUpon>SeafarerAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard_UserControls\Seafarer\SeafarerMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard_UserControls\Seafarer\SeafarerMenu.Designer.cs">
+      <DependentUpon>SeafarerMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard_UserControls\Vessel\VesselMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard_UserControls\Vessel\VesselMenu.Designer.cs">
+      <DependentUpon>VesselMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
@@ -100,8 +130,20 @@
     <Compile Include="LookAndFeel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Dashboard_UserControls\RankAdd.resx">
+    <EmbeddedResource Include="Dashboard_UserControls\Rank\RankMenu.resx">
+      <DependentUpon>RankMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard_UserControls\Rank\RankAdd.resx">
       <DependentUpon>RankAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard_UserControls\Seafarer\SeafarerAdd.resx">
+      <DependentUpon>SeafarerAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard_UserControls\Seafarer\SeafarerMenu.resx">
+      <DependentUpon>SeafarerMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard_UserControls\Vessel\VesselMenu.resx">
+      <DependentUpon>VesselMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
