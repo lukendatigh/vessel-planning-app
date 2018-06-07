@@ -92,10 +92,11 @@
             // 
             // comboRank
             // 
+            this.comboRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRank.FormattingEnabled = true;
             this.comboRank.Location = new System.Drawing.Point(46, 218);
             this.comboRank.Name = "comboRank";
-            this.comboRank.Size = new System.Drawing.Size(243, 21);
+            this.comboRank.Size = new System.Drawing.Size(243, 24);
             this.comboRank.TabIndex = 9;
             this.comboRank.SelectedIndexChanged += new System.EventHandler(this.comboRank_SelectedIndexChanged);
             // 
