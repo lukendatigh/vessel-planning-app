@@ -40,6 +40,8 @@
             this.seafarerGridView = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.Label();
+            this.idBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.seafarerGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,6 +144,7 @@
             this.seafarerGridView.Name = "seafarerGridView";
             this.seafarerGridView.Size = new System.Drawing.Size(536, 183);
             this.seafarerGridView.TabIndex = 22;
+            this.seafarerGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.seafarerGridView_CellClick);
             // 
             // btnSearch
             // 
@@ -167,10 +170,32 @@
             this.searchBox.Size = new System.Drawing.Size(443, 22);
             this.searchBox.TabIndex = 25;
             // 
+            // ID
+            // 
+            this.ID.AutoSize = true;
+            this.ID.Font = new System.Drawing.Font("Segoe UI", 9.786407F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ID.Location = new System.Drawing.Point(588, 285);
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(23, 19);
+            this.ID.TabIndex = 27;
+            this.ID.Text = "ID";
+            // 
+            // idBox
+            // 
+            this.idBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idBox.Location = new System.Drawing.Point(592, 308);
+            this.idBox.Name = "idBox";
+            this.idBox.ReadOnly = true;
+            this.idBox.Size = new System.Drawing.Size(108, 22);
+            this.idBox.TabIndex = 26;
+            // 
             // SeafarerEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ID);
+            this.Controls.Add(this.idBox);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.seafarerGridView);
@@ -205,5 +230,7 @@
         private System.Windows.Forms.DataGridView seafarerGridView;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Label ID;
+        private System.Windows.Forms.TextBox idBox;
     }
 }
