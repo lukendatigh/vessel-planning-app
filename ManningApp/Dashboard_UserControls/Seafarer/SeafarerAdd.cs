@@ -54,7 +54,6 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             string query = "INSERT INTO tblSeafarer(surname, othernames, rank, contract)" +
                "VALUES ('"+surnameField+"', '"+othernamesField+"', " +
                "'"+rankField+"', '"+contractField+"')";
-
             try
             {
                 using (SQLiteCommand command = new SQLiteCommand(query, database.connection))
@@ -67,21 +66,17 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 database.CloseConnection();
             }
-
             database.CloseConnection(); //close connection
             makeEmpty(); //clear boxes            
         }
 
-
-
-        //method toload data into rank combobox
+        //method to load data into rank combobox
         private void loadRankComboboxData()
         {
             Database database = new Database();
             database.OpenConnection();
 
             string query = "SELECT rank_name FROM tblRank";
-
             SQLiteCommand command = new SQLiteCommand(query, database.connection);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())   //loop reader and fill the combobox

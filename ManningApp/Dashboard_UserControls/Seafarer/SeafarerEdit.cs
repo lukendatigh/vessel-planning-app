@@ -17,12 +17,14 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
         {
             InitializeComponent();
         }
-
         private void SeafarerEdit_Load(object sender, EventArgs e)
         {
-            
+            loadRankComboboxData(); //load data into rank combobox 
         }
 
+        /*******************************************
+         *               SEARCHING                 *
+         *******************************************/
         private void btnSearch_Click(object sender, EventArgs e)
         {
             searchSeafarer();
@@ -33,6 +35,15 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             {
                 searchSeafarer();
             }
+            
+        }
+
+        /*******************************************
+         *                EDITING                  *
+         *******************************************/
+        private void seafarerGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void btnUpdateSeafarer_Click(object sender, EventArgs e)
@@ -40,13 +51,14 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
 
         }
 
+        //method to search for seafarer an display in data grid view
         private void searchSeafarer()
         {
             string searchText = searchBox.Text;
             Database database = new Database();
             database.OpenConnection();
 
-            string query = "SELECT surname,othernames,rank,contract,previous_vessel,current_vessel " +
+            string query = "SELECT id,surname,othernames,rank,contract,previous_vessel,current_vessel " +
                 "FROM tblSeafarer WHERE surname LIKE '%" + searchText + "%' OR othernames LIKE '%" + searchText + "%'";
             SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(query, database.connection);
             using (dataAdapter)
@@ -58,6 +70,22 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                 seafarerGridView.DataSource = dataView.ToTable();
             }
             database.CloseConnection();
+        }
+
+        //method to load data into rank combobox
+        private void loadRankComboboxData()
+        {
+            Database database = new Database();
+            database.OpenConnection();
+
+            string query = "SELECT rank_name FROM tblRank";
+            SQLiteCommand command = new SQLiteCommand(query, database.connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())   //loop reader and fill the combobox
+            {
+                comboRank.Items.Add(reader["rank_name"].ToString());
+            }
+
         }
 
     }
