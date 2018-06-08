@@ -20,10 +20,6 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
         {
             searchSeafarer();
         }
-        private void searchBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == (char)13) searchSeafarer();
-        }
 
         /*******************************************
          *            RECORD SELECTION             *
@@ -39,10 +35,12 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                 comboRank.Text = seafarerGridView.SelectedRows[0].Cells[3].Value.ToString();
                 contractBox.Text = seafarerGridView.SelectedRows[0].Cells[4].Value.ToString();
             }
-            catch{}
+            catch (Exception ex)
+            {
+               // MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
-
+        
         /*******************************************
          *                 ADDING                  *
          *******************************************/
@@ -67,23 +65,24 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                 return;
             }
 
-            //query string
-            string query = "INSERT INTO tblSeafarer(surname, othernames, rank, contract)" +
+            //statement string
+            string statement = "INSERT INTO tblSeafarer(surname, othernames, rank, contract)" +
                            "VALUES ('" + surnameField + "', '" + othernamesField + "', " +
                            "'" + rankField + "', '" + contractField + "')";
             try
             {
-                using (SQLiteCommand command = new SQLiteCommand(query, database.connection))
+                using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
                 {
                     command.ExecuteNonQuery(); //execute database command
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                database.CloseConnection();
+              //  MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //database.CloseConnection();
             }
             database.CloseConnection(); //close connection
+            searchSeafarer();
             makeEmpty(); //clear boxes            
         }
 
@@ -100,13 +99,13 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             Database database = new Database();
             database.OpenConnection();
 
-            string query = "UPDATE tblSeafarer " +
+            string statement = "UPDATE tblSeafarer " +
                 "SET surname = '"+ surnameText +"', othernames = '"+ othernamesText +"'," +
                 "rank = '"+ rankText +"', contract = '"+ contractText +"' " +
                 "WHERE id ='" + idText + "'";
             try
             {
-                using (SQLiteCommand command = new SQLiteCommand(query, database.connection))
+                using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
                 {
                     command.ExecuteNonQuery(); //execute database command
                     MessageBox.Show("Successfully updated!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -115,26 +114,61 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                database.CloseConnection();
+                //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //database.CloseConnection();
             }
             database.CloseConnection(); //close connection
         }
 
-        
+        /*******************************************
+         *               DELETING                  *
+         *******************************************/
+        private void btnDeleteSeafarer_Click(object sender, EventArgs e)
+        {
+            string idText = idBox.Text;
+            string name = surnameBox.Text + ", " + othernamesBox.Text;
+
+            Database database = new Database();
+            database.OpenConnection();
+            string statement = "DELETE FROM tblSeafarer WHERE id = '" + idText + "'";
+
+            string message = String.Format("Are you sure you want to delete {0}", name);
+            DialogResult dialog = MessageBox.Show(message, "Deletion", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                try
+                {
+                    using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
+                    {
+                        command.ExecuteNonQuery(); //execute database command
+                        MessageBox.Show("Successfully Deleted!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        searchSeafarer();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //database.CloseConnection();
+                }
+                database.CloseConnection(); //close connection
+            }
+            else if (dialog == DialogResult.No) return;
+        }
+
         
 
-
-        //method to search for seafarer an display in data grid view
+        //method to search for seafarer and display in data grid view
         private void searchSeafarer()
         {
             string searchText = searchBox.Text;
             Database database = new Database();
             database.OpenConnection();
 
-            string query = "SELECT id,surname,othernames,rank,contract,previous_vessel,current_vessel " +
-                "FROM tblSeafarer WHERE surname LIKE '%" + searchText + "%' OR othernames LIKE '%" + searchText + "%'";
-            SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(query, database.connection);
+            string statement = "SELECT id,surname,othernames,rank,contract,previous_vessel,current_vessel " +
+                "FROM tblSeafarer WHERE surname LIKE '%" + searchText + "%' " +
+                               "OR othernames LIKE '%" + searchText + "%'" +
+                               "OR rank LIKE '%" + searchText + "%'";
+            SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(statement, database.connection);
             using (dataAdapter)
             {
                 DataTable dataTable = new DataTable("Seafarers");
@@ -144,6 +178,8 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                 seafarerGridView.DataSource = dataView.ToTable();
             }
             database.CloseConnection();
+
+            searchBox.Select();
         }
 
         //method to load data into rank combobox
@@ -152,8 +188,8 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             Database database = new Database();
             database.OpenConnection();
 
-            string query = "SELECT name FROM tblRank";
-            SQLiteCommand command = new SQLiteCommand(query, database.connection);
+            string statement = "SELECT name FROM tblRank";
+            SQLiteCommand command = new SQLiteCommand(statement, database.connection);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())   //loop reader and fill the combobox
             {
@@ -170,7 +206,6 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             comboRank.Text = "";
             contractBox.Text = "";
         }
-
         private void SeafarerControl_Load_1(object sender, EventArgs e)
         {
             //focus on surname box
@@ -186,5 +221,7 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
 
             loadRankComboboxData(); //load data to rank combobox
         }
+
+
     }
 }
