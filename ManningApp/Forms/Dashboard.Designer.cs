@@ -44,11 +44,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
-            this.seafarerAdd1 = new ManningApp.Dashboard_UserControls.Seafarer.SeafarerAdd();
-            this.rankMenu1 = new ManningApp.Dashboard_Form_UserControls.RankMenu();
-            this.vesselMenu1 = new ManningApp.Dashboard_UserControls.VesselMenu();
-            this.seafarerMenu1 = new ManningApp.Dashboard_UserControls.SeafarerMenu();
-            this.seafarerEdit1 = new ManningApp.Dashboard_UserControls.Seafarer.SeafarerEdit();
+            this.seafarerEdit1 = new ManningApp.Dashboard_UserControls.Seafarer.SeafarerControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -250,39 +246,11 @@
             this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
-            // seafarerAdd1
-            // 
-            this.seafarerAdd1.Location = new System.Drawing.Point(182, 119);
-            this.seafarerAdd1.Name = "seafarerAdd1";
-            this.seafarerAdd1.Size = new System.Drawing.Size(757, 450);
-            this.seafarerAdd1.TabIndex = 6;
-            // 
-            // rankMenu1
-            // 
-            this.rankMenu1.Location = new System.Drawing.Point(182, 45);
-            this.rankMenu1.Name = "rankMenu1";
-            this.rankMenu1.Size = new System.Drawing.Size(780, 80);
-            this.rankMenu1.TabIndex = 5;
-            // 
-            // vesselMenu1
-            // 
-            this.vesselMenu1.Location = new System.Drawing.Point(182, 45);
-            this.vesselMenu1.Name = "vesselMenu1";
-            this.vesselMenu1.Size = new System.Drawing.Size(780, 80);
-            this.vesselMenu1.TabIndex = 7;
-            // 
-            // seafarerMenu1
-            // 
-            this.seafarerMenu1.Location = new System.Drawing.Point(184, 45);
-            this.seafarerMenu1.Name = "seafarerMenu1";
-            this.seafarerMenu1.Size = new System.Drawing.Size(780, 80);
-            this.seafarerMenu1.TabIndex = 8;
-            // 
             // seafarerEdit1
             // 
-            this.seafarerEdit1.Location = new System.Drawing.Point(180, 119);
+            this.seafarerEdit1.Location = new System.Drawing.Point(183, 46);
             this.seafarerEdit1.Name = "seafarerEdit1";
-            this.seafarerEdit1.Size = new System.Drawing.Size(711, 450);
+            this.seafarerEdit1.Size = new System.Drawing.Size(760, 527);
             this.seafarerEdit1.TabIndex = 9;
             // 
             // DashboardForm
@@ -291,10 +259,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 600);
             this.Controls.Add(this.seafarerEdit1);
-            this.Controls.Add(this.seafarerMenu1);
-            this.Controls.Add(this.vesselMenu1);
-            this.Controls.Add(this.seafarerAdd1);
-            this.Controls.Add(this.rankMenu1);
             this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnClose);
@@ -330,10 +294,6 @@
         private System.Windows.Forms.Button btnVessel;
         private System.Windows.Forms.Panel slidePanel;
         private System.Windows.Forms.Label label2;
-        private Dashboard_Form_UserControls.RankMenu rankMenu1;
-        private Dashboard_UserControls.Seafarer.SeafarerAdd seafarerAdd1;
-        private Dashboard_UserControls.VesselMenu vesselMenu1;
-        private Dashboard_UserControls.SeafarerMenu seafarerMenu1;
-        private Dashboard_UserControls.Seafarer.SeafarerEdit seafarerEdit1;
+        private Dashboard_UserControls.Seafarer.SeafarerControl seafarerEdit1;
     }
 }

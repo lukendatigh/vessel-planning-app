@@ -1,75 +1,72 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ManningApp
 {
     public partial class DashboardForm : Form
     {
+        private Point lastLocation;
+
+
+        //make form moveable
+        private bool mouseDown;
+
         //custom form color
-        Color selectedColor = Color.FromArgb(25, 140, 108);
-        Color sideDefault = Color.FromArgb(37, 37, 38);
-        
+        private readonly Color selectedColor = Color.FromArgb(25, 140, 108);
+        private readonly Color sideDefault = Color.FromArgb(37, 37, 38);
+
         public DashboardForm()
         {
             InitializeComponent();
-            
+
             slidePanel.Height = btnDashboard.Height;
             slidePanel.Top = btnDashboard.Top;
             btnDashboard.BackColor = selectedColor;
         }
 
-
-        //make form moveable
-        private bool mouseDown;
-        private Point lastLocation;
         private void DashboardForm_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
             lastLocation = e.Location;
         }
+
         private void DashboardForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
             {
-                this.Location = new Point((this.Location.X - lastLocation.X) 
-                    + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-                this.Update();
+                Location = new Point(Location.X - lastLocation.X
+                                     + e.X, Location.Y - lastLocation.Y + e.Y);
+                Update();
             }
         }
 
 
         private void btnClose_MouseEnter(object sender, EventArgs e)
         {
-            this.btnClose.BackColor = Color.Red;
+            btnClose.BackColor = Color.Red;
         }
 
         private void btnClose_MouseLeave(object sender, EventArgs e)
         {
-            this.btnClose.BackColor = Color.Transparent;
+            btnClose.BackColor = Color.Transparent;
         }
 
 
         //close button event
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-            
+            DialogResult dialog = MessageBox.Show("Close Program?", "Exit", MessageBoxButtons.YesNo);
+            if(dialog == DialogResult.Yes) Application.Exit();
+            else if (dialog == DialogResult.No) return;
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-
         }
 
 
@@ -86,6 +83,7 @@ namespace ManningApp
             btnVessel.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
         }
+
         private void btnPlan_Click(object sender, EventArgs e)
         {
             slidePanel.Height = btnPlan.Height;
@@ -98,8 +96,8 @@ namespace ManningApp
             btnSeafarer.BackColor = sideDefault;
             btnVessel.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
-
         }
+
         private void btnView_Click(object sender, EventArgs e)
         {
             slidePanel.Height = btnView.Height;
@@ -113,6 +111,7 @@ namespace ManningApp
             btnVessel.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
         }
+
         private void btnSeafarer_Click(object sender, EventArgs e)
         {
             slidePanel.Height = btnSeafarer.Height;
@@ -126,6 +125,7 @@ namespace ManningApp
             btnVessel.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
         }
+
         private void btnVessel_Click(object sender, EventArgs e)
         {
             slidePanel.Height = btnVessel.Height;
@@ -139,6 +139,7 @@ namespace ManningApp
             btnSeafarer.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
         }
+
         private void btnRank_Click(object sender, EventArgs e)
         {
             slidePanel.Height = btnRank.Height;
@@ -152,6 +153,5 @@ namespace ManningApp
             btnSeafarer.BackColor = sideDefault;
             btnVessel.BackColor = sideDefault;
         }
-
     }
 }
