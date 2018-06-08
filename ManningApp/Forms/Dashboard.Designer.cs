@@ -45,6 +45,7 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
             this.seafarerEdit1 = new ManningApp.Dashboard_UserControls.Seafarer.SeafarerControl();
+            this.vesselControl1 = new ManningApp.Dashboard_UserControls.VesselControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -203,9 +204,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(7, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 23);
+            this.label2.Size = new System.Drawing.Size(151, 23);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Vessel Planning";
+            this.label2.Text = "Vessel Planner";
             // 
             // btnClose
             // 
@@ -250,14 +251,22 @@
             // 
             this.seafarerEdit1.Location = new System.Drawing.Point(183, 46);
             this.seafarerEdit1.Name = "seafarerEdit1";
-            this.seafarerEdit1.Size = new System.Drawing.Size(760, 527);
+            this.seafarerEdit1.Size = new System.Drawing.Size(770, 550);
             this.seafarerEdit1.TabIndex = 9;
+            // 
+            // vesselControl1
+            // 
+            this.vesselControl1.Location = new System.Drawing.Point(183, 46);
+            this.vesselControl1.Name = "vesselControl1";
+            this.vesselControl1.Size = new System.Drawing.Size(770, 550);
+            this.vesselControl1.TabIndex = 10;
             // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 600);
+            this.Controls.Add(this.vesselControl1);
             this.Controls.Add(this.seafarerEdit1);
             this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnSettings);
@@ -295,5 +304,6 @@
         private System.Windows.Forms.Panel slidePanel;
         private System.Windows.Forms.Label label2;
         private Dashboard_UserControls.Seafarer.SeafarerControl seafarerEdit1;
+        private Dashboard_UserControls.VesselControl vesselControl1;
     }
 }
