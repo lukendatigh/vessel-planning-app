@@ -12,9 +12,6 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
         {
             InitializeComponent();
         }
-        private void SeafarerEdit_Load(object sender, EventArgs e)
-        {
-        }
 
         /*******************************************
          *               SEARCHING                 *
@@ -29,7 +26,7 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
         }
 
         /*******************************************
-         *               DATA SELECT               *
+         *            RECORD SELECTION             *
          *******************************************/
         private void seafarerGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -46,14 +43,48 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
         }
 
 
-
-
         /*******************************************
          *                 ADDING                  *
          *******************************************/
         private void btnAddSeafarer_Click(object sender, EventArgs e)
         {
+            //connect to database
+            Database database = new Database();
+            database.OpenConnection(); // open connection
 
+            //texbox items to string
+            string surnameField, othernamesField, rankField, contractField;
+            surnameField = surnameBox.Text.Trim();
+            othernamesField = othernamesBox.Text.Trim();
+            rankField = comboRank.Text;
+            contractField = contractBox.Text.Trim();
+
+            //checking for empty fields 
+            if (surnameField == "" || othernamesField == "" ||
+                rankField == "" || contractField == "")
+            {
+                errorMessage.Text = "some fields seem empty";
+                return;
+            }
+
+            //query string
+            string query = "INSERT INTO tblSeafarer(surname, othernames, rank, contract)" +
+                           "VALUES ('" + surnameField + "', '" + othernamesField + "', " +
+                           "'" + rankField + "', '" + contractField + "')";
+            try
+            {
+                using (SQLiteCommand command = new SQLiteCommand(query, database.connection))
+                {
+                    command.ExecuteNonQuery(); //execute database command
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                database.CloseConnection();
+            }
+            database.CloseConnection(); //close connection
+            makeEmpty(); //clear boxes            
         }
 
         /*******************************************
@@ -78,7 +109,7 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                 using (SQLiteCommand command = new SQLiteCommand(query, database.connection))
                 {
                     command.ExecuteNonQuery(); //execute database command
-                    MessageBox.Show("Successfully edited", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Successfully updated!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     searchSeafarer();                    
                 }
             }
@@ -90,14 +121,8 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             database.CloseConnection(); //close connection
         }
 
-
-
         
-
-
-
-
-
+        
 
 
         //method to search for seafarer an display in data grid view
@@ -134,9 +159,32 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             {
                 comboRank.Items.Add(reader["name"].ToString());
             }
+            database.CloseConnection();
 
         }
 
+        private void makeEmpty()
+        {
+            surnameBox.Text = "";
+            othernamesBox.Text = "";
+            comboRank.Text = "";
+            contractBox.Text = "";
+        }
 
+        private void SeafarerControl_Load_1(object sender, EventArgs e)
+        {
+            //focus on surname box
+            surnameBox.Select();
+
+            //initialize tooltips on control hovers
+            ToolTip tooltip = new ToolTip();
+            tooltip.IsBalloon = true;
+            tooltip.SetToolTip(surnameBox, "enter seafarer's surname");
+            tooltip.SetToolTip(othernamesBox, "enter seafarer's other names");
+            tooltip.SetToolTip(comboRank, "select seafarer's current rank");
+            tooltip.SetToolTip(contractBox, "enter seafarer's current contract");
+
+            loadRankComboboxData(); //load data to rank combobox
+        }
     }
 }

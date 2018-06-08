@@ -43,6 +43,7 @@
             this.idBox = new System.Windows.Forms.TextBox();
             this.btnDeleteSeafarer = new System.Windows.Forms.Button();
             this.btnAddSeafarer = new System.Windows.Forms.Button();
+            this.errorMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.seafarerGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,10 +140,13 @@
             // 
             // seafarerGridView
             // 
+            this.seafarerGridView.AllowUserToAddRows = false;
+            this.seafarerGridView.AllowUserToDeleteRows = false;
             this.seafarerGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.seafarerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.seafarerGridView.Location = new System.Drawing.Point(37, 62);
             this.seafarerGridView.Name = "seafarerGridView";
+            this.seafarerGridView.ReadOnly = true;
             this.seafarerGridView.Size = new System.Drawing.Size(536, 319);
             this.seafarerGridView.TabIndex = 22;
             this.seafarerGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.seafarerGridView_CellClick);
@@ -210,10 +214,20 @@
             this.btnAddSeafarer.UseVisualStyleBackColor = false;
             this.btnAddSeafarer.Click += new System.EventHandler(this.btnAddSeafarer_Click);
             // 
+            // errorMessage
+            // 
+            this.errorMessage.AutoSize = true;
+            this.errorMessage.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorMessage.Location = new System.Drawing.Point(598, 252);
+            this.errorMessage.Name = "errorMessage";
+            this.errorMessage.Size = new System.Drawing.Size(0, 13);
+            this.errorMessage.TabIndex = 30;
+            // 
             // SeafarerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.btnAddSeafarer);
             this.Controls.Add(this.btnDeleteSeafarer);
             this.Controls.Add(this.idBox);
@@ -231,6 +245,7 @@
             this.Controls.Add(this.label2);
             this.Name = "SeafarerControl";
             this.Size = new System.Drawing.Size(780, 520);
+            this.Load += new System.EventHandler(this.SeafarerControl_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.seafarerGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -254,5 +269,6 @@
         private System.Windows.Forms.TextBox idBox;
         private System.Windows.Forms.Button btnDeleteSeafarer;
         private System.Windows.Forms.Button btnAddSeafarer;
+        private System.Windows.Forms.Label errorMessage;
     }
 }
