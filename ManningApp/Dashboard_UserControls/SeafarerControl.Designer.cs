@@ -44,6 +44,7 @@
             this.btnDeleteSeafarer = new System.Windows.Forms.Button();
             this.btnAddSeafarer = new System.Windows.Forms.Button();
             this.errorMessage = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.seafarerGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,10 +144,14 @@
             this.seafarerGridView.AllowUserToAddRows = false;
             this.seafarerGridView.AllowUserToDeleteRows = false;
             this.seafarerGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.seafarerGridView.CausesValidation = false;
+            this.seafarerGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.seafarerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.seafarerGridView.Location = new System.Drawing.Point(38, 76);
             this.seafarerGridView.Name = "seafarerGridView";
             this.seafarerGridView.ReadOnly = true;
+            this.seafarerGridView.ShowCellErrors = false;
+            this.seafarerGridView.ShowRowErrors = false;
             this.seafarerGridView.Size = new System.Drawing.Size(536, 319);
             this.seafarerGridView.TabIndex = 22;
             this.seafarerGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.seafarerGridView_CellClick);
@@ -224,10 +229,26 @@
             this.errorMessage.Size = new System.Drawing.Size(0, 13);
             this.errorMessage.TabIndex = 30;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(602, 42);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(88, 30);
+            this.btnRefresh.TabIndex = 31;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // SeafarerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.btnAddSeafarer);
             this.Controls.Add(this.btnDeleteSeafarer);
@@ -271,5 +292,6 @@
         private System.Windows.Forms.Button btnDeleteSeafarer;
         private System.Windows.Forms.Button btnAddSeafarer;
         private System.Windows.Forms.Label errorMessage;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

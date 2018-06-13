@@ -28,7 +28,6 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
         {
             try
             {
-                loadRankComboboxData(); //load data into rank combobox 
                 idBox.Text = seafarerGridView.SelectedRows[0].Cells[0].Value.ToString();
                 surnameBox.Text = seafarerGridView.SelectedRows[0].Cells[1].Value.ToString();
                 othernamesBox.Text = seafarerGridView.SelectedRows[0].Cells[2].Value.ToString();
@@ -37,10 +36,11 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             }
             catch (Exception ex)
             {
-               // MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex);
             }
+
         }
-        
+
         /*******************************************
          *                 ADDING                  *
          *******************************************/
@@ -51,17 +51,16 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             database.OpenConnection(); // open connection
 
             //texbox items to string
-            string surnameField, othernamesField, rankField, contractField;
-            surnameField = surnameBox.Text.Trim();
-            othernamesField = othernamesBox.Text.Trim();
-            rankField = comboRank.Text;
-            contractField = contractBox.Text.Trim();
+            var surnameField = surnameBox.Text.Trim();
+            var othernamesField = othernamesBox.Text.Trim();
+            var rankField = comboRank.Text;
+            var contractField = contractBox.Text.Trim();
 
             //checking for empty fields 
             if (surnameField == "" || othernamesField == "" ||
                 rankField == "" || contractField == "")
             {
-                errorMessage.Text = "some fields seem empty";
+                errorMessage.Text = @"some fields seem empty";
                 return;
             }
 
@@ -74,16 +73,18 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                 using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
                 {
                     command.ExecuteNonQuery(); //execute database command
+                    MessageBox.Show(@"Successfully added!", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
             }
             catch (Exception ex)
             {
-              //  MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //database.CloseConnection();
+                MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                database.CloseConnection();
             }
             database.CloseConnection(); //close connection
             searchSeafarer();
-            makeEmpty(); //clear boxes            
+            makeEmpty();        
         }
 
         /*******************************************
@@ -108,16 +109,16 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                 using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
                 {
                     command.ExecuteNonQuery(); //execute database command
-                    MessageBox.Show("Successfully updated!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    searchSeafarer();                    
+                    MessageBox.Show(@"Successfully updated!", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //database.CloseConnection();
+                MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            database.CloseConnection(); //close connection
+            database.CloseConnection();
+            searchSeafarer();
+            makeEmpty();
         }
 
         /*******************************************
@@ -132,8 +133,8 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             database.OpenConnection();
             string statement = "DELETE FROM tblSeafarer WHERE id = '" + idText + "'";
 
-            string message = String.Format("Are you sure you want to delete {0}", name);
-            DialogResult dialog = MessageBox.Show(message, "Deletion", MessageBoxButtons.YesNo);
+            string message = String.Format("Are you sure you want to delete {0}?", name);
+            DialogResult dialog = MessageBox.Show(message, @"Deletion", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 try
@@ -141,18 +142,16 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                     using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
                     {
                         command.ExecuteNonQuery(); //execute database command
-                        MessageBox.Show("Successfully Deleted!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        searchSeafarer();
+                        MessageBox.Show(@"Successfully Deleted!", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
-                    //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //database.CloseConnection();
+                    MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                database.CloseConnection(); //close connection
+                searchSeafarer();
+                database.CloseConnection();
             }
-            else if (dialog == DialogResult.No) return;
         }
 
         
@@ -185,17 +184,26 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
         //method to load data into rank combobox
         private void loadRankComboboxData()
         {
-            Database database = new Database();
-            database.OpenConnection();
-
-            string statement = "SELECT name FROM tblRank";
-            SQLiteCommand command = new SQLiteCommand(statement, database.connection);
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())   //loop reader and fill the combobox
+            try
             {
-                comboRank.Items.Add(reader["name"].ToString());
+                Database database = new Database();
+
+                database.OpenConnection();
+
+                string statement = "SELECT name FROM tblRank";
+                SQLiteCommand command = new SQLiteCommand(statement, database.connection);
+                SQLiteDataReader reader = command.ExecuteReader();
+                while (reader.Read()) //loop reader and fill the combobox
+                {
+                    comboRank.Items.Add(reader["name"].ToString());
+                }
+
+                database.CloseConnection();
             }
-            database.CloseConnection();
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
         }
 
@@ -208,9 +216,9 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
         }
         private void SeafarerControl_Load_1(object sender, EventArgs e)
         {
-            //focus on surname box
-            surnameBox.Select();
-
+            
+            surnameBox.Select();//focus on surname box
+            //searchSeafarer(); //load data
             //initialize tooltips on control hovers
             ToolTip tooltip = new ToolTip();
             tooltip.IsBalloon = true;
@@ -219,9 +227,13 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             tooltip.SetToolTip(comboRank, "select seafarer's current rank");
             tooltip.SetToolTip(contractBox, "enter seafarer's current contract");
 
-            loadRankComboboxData(); //load data to rank combobox
+            
         }
 
-
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            loadRankComboboxData(); //load data to rank combobox
+            btnRefresh.Enabled = false;
+        }
     }
 }
