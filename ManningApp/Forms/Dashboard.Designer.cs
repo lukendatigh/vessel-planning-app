@@ -44,6 +44,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
+            this.rankControl1 = new ManningApp.Dashboard_UserControls.RankControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -245,11 +246,19 @@
             this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
+            // rankControl1
+            // 
+            this.rankControl1.Location = new System.Drawing.Point(182, 45);
+            this.rankControl1.Name = "rankControl1";
+            this.rankControl1.Size = new System.Drawing.Size(770, 550);
+            this.rankControl1.TabIndex = 5;
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 600);
+            this.Controls.Add(this.rankControl1);
             this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnClose);
@@ -285,5 +294,6 @@
         private System.Windows.Forms.Button btnVessel;
         private System.Windows.Forms.Panel slidePanel;
         private System.Windows.Forms.Label label2;
+        private Dashboard_UserControls.RankControl rankControl1;
     }
 }

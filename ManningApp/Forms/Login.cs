@@ -43,15 +43,15 @@ namespace ManningApp
 
             //query string
             string query = "SELECT * FROM tblManningOfficer " +
-                "WHERE manning_officer_surname = '"+nameField+"' AND password = '"+passwordField+"'";
+                "WHERE surname = '"+nameField+"' AND password = '"+passwordField+"'";
             
             try
             {
                 using (SQLiteCommand command = new SQLiteCommand(query, database.connection))
                 {                   
-                    /*
-                    command.CommandText = query;
-                    command.Connection = database.con; */
+
+                    //command.CommandText = query;
+                    //command.Connection = database.con;
 
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {                        
@@ -59,11 +59,7 @@ namespace ManningApp
                         {
                             loginValid = true;
                             this.Hide();
-
-                            //saving the logged in session user
-                            TempData sessionID = new TempData();                      
-                            sessionID.SetSessionUser(nameField.ToUpper());
-
+                   
                             if (loginValid) //open main dashboard form when login details are correct
                             {
                                 DashboardForm dashboard = new DashboardForm();
