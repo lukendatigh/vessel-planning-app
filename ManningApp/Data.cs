@@ -1,11 +1,12 @@
-﻿using System.Data.SQLite;
-
+﻿using System;
+using System.Data.SQLite;
+using System.IO;
 
 namespace Data
 {  
     class Database
     {
-        public  SQLiteConnection connection;
+        public SQLiteConnection connection;
         //database instance constructor and connection string declaration
         public Database()
         {
@@ -16,40 +17,35 @@ namespace Data
         //opening connection
         public void OpenConnection()
         {
-            if (connection.State != System.Data.ConnectionState.Open)
+            try
             {
-                connection.Open();
+                if (connection.State != System.Data.ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                else return;
             }
-            else return;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
         //closing connection
         public void CloseConnection()
         {
-            if (connection.State != System.Data.ConnectionState.Closed)
+            try
             {
-                connection.Close();
+                if (connection.State != System.Data.ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+                else return;
             }
-            else return;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
-
-    class ManningOfficer
-    {
-        private string manningOfficerName;
-        public void SetName(string name)
-        {
-            manningOfficerName = name;
-        }
-    }
-
-    class TempData
-    {
-        private string sessionName;
-        public void SetSessionUser(string name)
-        {
-            sessionName = name;
-        }
-    }
-
 
 }
