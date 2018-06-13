@@ -43,6 +43,8 @@
             this.typeBox = new System.Windows.Forms.TextBox();
             this.nameBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.errorMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vesselGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +61,7 @@
             this.btnAddVessel.TabIndex = 44;
             this.btnAddVessel.Text = "Add";
             this.btnAddVessel.UseVisualStyleBackColor = false;
+            this.btnAddVessel.Click += new System.EventHandler(this.btnAddVessel_Click);
             // 
             // btnDeleteVessel
             // 
@@ -73,6 +76,7 @@
             this.btnDeleteVessel.TabIndex = 43;
             this.btnDeleteVessel.Text = "Delete";
             this.btnDeleteVessel.UseVisualStyleBackColor = false;
+            this.btnDeleteVessel.Click += new System.EventHandler(this.btnDeleteVessel_Click);
             // 
             // idBox
             // 
@@ -112,13 +116,19 @@
             // 
             this.vesselGridView.AllowUserToAddRows = false;
             this.vesselGridView.AllowUserToDeleteRows = false;
+            this.vesselGridView.AllowUserToResizeRows = false;
             this.vesselGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vesselGridView.CausesValidation = false;
+            this.vesselGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.vesselGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vesselGridView.Location = new System.Drawing.Point(38, 76);
             this.vesselGridView.Name = "vesselGridView";
             this.vesselGridView.ReadOnly = true;
+            this.vesselGridView.ShowCellErrors = false;
+            this.vesselGridView.ShowRowErrors = false;
             this.vesselGridView.Size = new System.Drawing.Size(536, 319);
             this.vesselGridView.TabIndex = 39;
+            this.vesselGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vesselGridView_CellClick);
             // 
             // btnUpdateVessel
             // 
@@ -133,6 +143,7 @@
             this.btnUpdateVessel.TabIndex = 38;
             this.btnUpdateVessel.Text = "Update";
             this.btnUpdateVessel.UseVisualStyleBackColor = false;
+            this.btnUpdateVessel.Click += new System.EventHandler(this.btnUpdateVessel_Click);
             // 
             // fleetBox
             // 
@@ -210,10 +221,36 @@
             this.label2.TabIndex = 30;
             this.label2.Text = "Name";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(602, 42);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(88, 30);
+            this.btnRefresh.TabIndex = 45;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // errorMessage
+            // 
+            this.errorMessage.AutoSize = true;
+            this.errorMessage.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorMessage.Location = new System.Drawing.Point(600, 266);
+            this.errorMessage.Name = "errorMessage";
+            this.errorMessage.Size = new System.Drawing.Size(0, 13);
+            this.errorMessage.TabIndex = 46;
+            // 
             // VesselControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.errorMessage);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnAddVessel);
             this.Controls.Add(this.btnDeleteVessel);
             this.Controls.Add(this.idBox);
@@ -255,5 +292,7 @@
         private System.Windows.Forms.TextBox typeBox;
         private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Label errorMessage;
     }
 }

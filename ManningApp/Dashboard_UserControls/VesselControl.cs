@@ -14,7 +14,15 @@ namespace ManningApp.Dashboard_UserControls
         }
         private void VesselControl_Load(object sender, EventArgs e)
         {
-            loadManningOfficerComboboxData();
+            nameBox.Select();//focus on name box
+            
+            //initialize tooltips on control hovers
+            ToolTip tooltip = new ToolTip();
+            tooltip.IsBalloon = true;
+            tooltip.SetToolTip(nameBox, "enter vessel name");
+            tooltip.SetToolTip(typeBox, "enter vessel type");
+            tooltip.SetToolTip(comboManningOfficer, "select manning officer");
+            tooltip.SetToolTip(fleetBox, "enter fleet");
         }
 
         /*******************************************
@@ -28,11 +36,10 @@ namespace ManningApp.Dashboard_UserControls
         /*******************************************
         *            RECORD SELECTION             *
         *******************************************/
-        private void seafarerGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void vesselGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                loadManningOfficerComboboxData(); //load data into manning officer combobox 
                 idBox.Text = vesselGridView.SelectedRows[0].Cells[0].Value.ToString();
                 nameBox.Text = vesselGridView.SelectedRows[0].Cells[1].Value.ToString();
                 typeBox.Text = vesselGridView.SelectedRows[0].Cells[2].Value.ToString();
@@ -41,10 +48,123 @@ namespace ManningApp.Dashboard_UserControls
             }
             catch (Exception ex)
             {
-                // MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex);
             }
         }
 
+        /*******************************************
+         *                ADDING                   *
+         *******************************************/
+        private void btnAddVessel_Click(object sender, EventArgs e)
+        {
+            //connect to database
+            Database database = new Database();
+            database.OpenConnection(); // open connection
+
+            //texbox items to string
+            var nameField = nameBox.Text.Trim();
+            var typeField = typeBox.Text.Trim();
+            var manningOfficerField = comboManningOfficer.Text;
+            var fleetField = fleetBox.Text.Trim();
+
+            //checking for empty fields 
+            if (nameField == "" || typeField == "" ||
+                manningOfficerField== "" || fleetField == "")
+            {
+                errorMessage.Text = @"some fields seem empty";
+                return;
+            }
+
+            //statement string
+            string statement = "INSERT INTO tblVessel(name, type, manning_officer, fleet)" +
+                               "VALUES ('" + nameField + "', '" + typeField + "', " +
+                               "'" + manningOfficerField + "', '" + fleetField + "')";
+            try
+            {
+                using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
+                {
+                    command.ExecuteNonQuery(); //execute database command
+                    MessageBox.Show(@"Successfully added!", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            database.CloseConnection();
+            searchVessel(); 
+            makeEmpty(); 
+
+        }
+        
+        /*******************************************
+        *                UPDATING                  *
+        ********************************************/
+        private void btnUpdateVessel_Click(object sender, EventArgs e)
+        {
+            string idText = idBox.Text;
+            string nameText = nameBox.Text;
+            string typeText = typeBox.Text;
+            string manningOfficerText = comboManningOfficer.Text;
+            string fleetText = fleetBox.Text;
+            Database database = new Database();
+            database.OpenConnection();
+
+            string statement = "UPDATE tblVessel " +
+                               "SET name = '" + nameText + "', type = '" + typeText + "'," +
+                               "manning_officer= '" + manningOfficerText + "', fleet = '" + fleetText + "' " +
+                               "WHERE id ='" + idText + "'";
+            try
+            {
+                using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
+                {
+                    command.ExecuteNonQuery(); //execute database command
+                    MessageBox.Show(@"Successfully updated!", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            database.CloseConnection();
+            searchVessel();
+            makeEmpty();
+        }
+
+        /*******************************************
+        *                DELETING                  *
+        ********************************************/
+        private void btnDeleteVessel_Click(object sender, EventArgs e)
+        {
+            string idText = idBox.Text;
+            string name = nameBox.Text;
+
+            Database database = new Database();
+            database.OpenConnection();
+            string statement = "DELETE FROM tblVessel WHERE id = '" + idText + "'";
+
+            string message = String.Format("Are you sure you want to delete {0}?", name);
+            DialogResult dialog = MessageBox.Show(message, @"Deletion", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                try
+                {
+                    using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
+                    {
+                        command.ExecuteNonQuery(); //execute database command
+                        MessageBox.Show(@"Successfully Deleted!", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        searchVessel();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            database.CloseConnection();
+        }
+
+        
 
         //method to search for vessel and display in data grid view
         private void searchVessel()
@@ -56,7 +176,7 @@ namespace ManningApp.Dashboard_UserControls
             string statement = "SELECT id,name,type,manning_officer,fleet " +
                                "FROM tblVessel WHERE name LIKE '%" + searchText + "%' " +
                                "OR fleet LIKE '%" + searchText + "%'" +
-                               "OR type LIKE '%" + searchText + "%'" ;
+                               "OR type LIKE '%" + searchText + "%'";
             SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(statement, database.connection);
             using (dataAdapter)
             {
@@ -73,20 +193,39 @@ namespace ManningApp.Dashboard_UserControls
         //method to load data into rank combobox
         private void loadManningOfficerComboboxData()
         {
-            Database database = new Database();
-            database.OpenConnection();
-
-            string statement = "SELECT surname FROM tblManningOfficer";
-            SQLiteCommand command = new SQLiteCommand(statement, database.connection);
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())   //loop reader and fill the combobox
+            try
             {
-                comboManningOfficer.Items.Add(reader["surname"].ToString());
+                Database database = new Database();
+                database.OpenConnection();
+
+                string statement = "SELECT surname FROM tblManningOfficer";
+                SQLiteCommand command = new SQLiteCommand(statement, database.connection);
+                SQLiteDataReader reader = command.ExecuteReader();
+                while (reader.Read()) //loop reader and fill the combobox
+                {
+                    comboManningOfficer.Items.Add(reader["surname"].ToString());
+                }
+                database.CloseConnection();
             }
-            database.CloseConnection();
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            loadManningOfficerComboboxData();
+            btnRefresh.Enabled = false;
+        }
 
+        private void makeEmpty()
+        {
+            nameBox.Text = "";
+            typeBox.Text = "";
+            comboManningOfficer.Text = "";
+            fleetBox.Text = "";
+        }
     }
 }
