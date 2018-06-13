@@ -84,35 +84,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dashboard_UserControls\Rank\RankAdd.cs">
+    <Compile Include="Dashboard_UserControls\RankControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Dashboard_UserControls\Rank\RankAdd.Designer.cs">
-      <DependentUpon>RankAdd.cs</DependentUpon>
+    <Compile Include="Dashboard_UserControls\RankControl.Designer.cs">
+      <DependentUpon>RankControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard_UserControls\Rank\RankMenu.cs">
+    <Compile Include="Dashboard_UserControls\SeafarerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Dashboard_UserControls\Rank\RankMenu.Designer.cs">
-      <DependentUpon>RankMenu.cs</DependentUpon>
+    <Compile Include="Dashboard_UserControls\SeafarerControl.Designer.cs">
+      <DependentUpon>SeafarerControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard_UserControls\Seafarer\SeafarerAdd.cs">
+    <Compile Include="Dashboard_UserControls\VesselControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Dashboard_UserControls\Seafarer\SeafarerAdd.Designer.cs">
-      <DependentUpon>SeafarerAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dashboard_UserControls\Seafarer\SeafarerMenu.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Dashboard_UserControls\Seafarer\SeafarerMenu.Designer.cs">
-      <DependentUpon>SeafarerMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dashboard_UserControls\Vessel\VesselMenu.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Dashboard_UserControls\Vessel\VesselMenu.Designer.cs">
-      <DependentUpon>VesselMenu.cs</DependentUpon>
+    <Compile Include="Dashboard_UserControls\VesselControl.Designer.cs">
+      <DependentUpon>VesselControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
@@ -130,20 +118,14 @@
     <Compile Include="LookAndFeel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Dashboard_UserControls\Rank\RankMenu.resx">
-      <DependentUpon>RankMenu.cs</DependentUpon>
+    <EmbeddedResource Include="Dashboard_UserControls\RankControl.resx">
+      <DependentUpon>RankControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard_UserControls\Rank\RankAdd.resx">
-      <DependentUpon>RankAdd.cs</DependentUpon>
+    <EmbeddedResource Include="Dashboard_UserControls\SeafarerControl.resx">
+      <DependentUpon>SeafarerControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard_UserControls\Seafarer\SeafarerAdd.resx">
-      <DependentUpon>SeafarerAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard_UserControls\Seafarer\SeafarerMenu.resx">
-      <DependentUpon>SeafarerMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard_UserControls\Vessel\VesselMenu.resx">
-      <DependentUpon>VesselMenu.cs</DependentUpon>
+    <EmbeddedResource Include="Dashboard_UserControls\VesselControl.resx">
+      <DependentUpon>VesselControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

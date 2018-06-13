@@ -18,7 +18,7 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
          *******************************************/
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            searchSeafarer();
+            searchSeafarer(); //this method calls a sexy block of code that does as is
         }
 
         /*******************************************

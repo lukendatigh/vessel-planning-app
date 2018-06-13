@@ -22,12 +22,12 @@ namespace ManningApp.Dashboard_UserControls
         *******************************************/
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            searchVessel();
+            searchVessel(); //this method calls a sexy block of code that does as is
         }
 
         /*******************************************
-       *            RECORD SELECTION             *
-       *******************************************/
+        *            RECORD SELECTION             *
+        *******************************************/
         private void seafarerGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
