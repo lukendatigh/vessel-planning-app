@@ -45,6 +45,8 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
             this.rankControl1 = new ManningApp.Dashboard_UserControls.RankControl();
+            this.vesselControl1 = new ManningApp.Dashboard_UserControls.VesselControl();
+            this.seafarerControl1 = new ManningApp.Dashboard_UserControls.Seafarer.SeafarerControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -213,7 +215,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(916, 1);
+            this.btnClose.Location = new System.Drawing.Point(917, 1);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(43, 42);
             this.btnClose.TabIndex = 2;
@@ -226,7 +228,7 @@
             this.btnSettings.FlatAppearance.BorderSize = 0;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(869, 1);
+            this.btnSettings.Location = new System.Drawing.Point(871, 1);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(43, 42);
             this.btnSettings.TabIndex = 3;
@@ -239,7 +241,7 @@
             this.btnInfo.FlatAppearance.BorderSize = 0;
             this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.Image")));
-            this.btnInfo.Location = new System.Drawing.Point(822, 1);
+            this.btnInfo.Location = new System.Drawing.Point(825, 1);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(43, 42);
             this.btnInfo.TabIndex = 4;
@@ -248,16 +250,32 @@
             // 
             // rankControl1
             // 
-            this.rankControl1.Location = new System.Drawing.Point(182, 45);
+            this.rankControl1.Location = new System.Drawing.Point(183, 46);
             this.rankControl1.Name = "rankControl1";
             this.rankControl1.Size = new System.Drawing.Size(770, 550);
             this.rankControl1.TabIndex = 5;
+            // 
+            // vesselControl1
+            // 
+            this.vesselControl1.Location = new System.Drawing.Point(183, 46);
+            this.vesselControl1.Name = "vesselControl1";
+            this.vesselControl1.Size = new System.Drawing.Size(770, 550);
+            this.vesselControl1.TabIndex = 6;
+            // 
+            // seafarerControl1
+            // 
+            this.seafarerControl1.Location = new System.Drawing.Point(183, 46);
+            this.seafarerControl1.Name = "seafarerControl1";
+            this.seafarerControl1.Size = new System.Drawing.Size(800, 520);
+            this.seafarerControl1.TabIndex = 7;
             // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 600);
+            this.Controls.Add(this.seafarerControl1);
+            this.Controls.Add(this.vesselControl1);
             this.Controls.Add(this.rankControl1);
             this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnSettings);
@@ -295,5 +313,7 @@
         private System.Windows.Forms.Panel slidePanel;
         private System.Windows.Forms.Label label2;
         private Dashboard_UserControls.RankControl rankControl1;
+        private Dashboard_UserControls.VesselControl vesselControl1;
+        private Dashboard_UserControls.Seafarer.SeafarerControl seafarerControl1;
     }
 }
