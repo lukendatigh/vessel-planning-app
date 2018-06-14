@@ -79,22 +79,27 @@ namespace ManningApp.Dashboard_UserControls
             string statement = "INSERT INTO tblVessel(name, type, manning_officer, fleet)" +
                                "VALUES ('" + nameField + "', '" + typeField + "', " +
                                "'" + manningOfficerField + "', '" + fleetField + "')";
-            try
+
+            string message = String.Format("Add {0} to records?", nameField);
+            DialogResult dialog = MessageBox.Show(message, @"Addition", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
             {
-                using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
+                try
                 {
-                    command.ExecuteNonQuery(); //execute database command
-                    MessageBox.Show(@"Successfully added!", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
+                    {
+                        command.ExecuteNonQuery(); //execute database command
+                        MessageBox.Show(@"Successfully added!", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                searchVessel();
+                makeEmpty();
             }
             database.CloseConnection();
-            searchVessel(); 
-            makeEmpty(); 
-
         }
         
         /*******************************************

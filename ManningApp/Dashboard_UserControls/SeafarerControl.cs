@@ -68,23 +68,28 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             string statement = "INSERT INTO tblSeafarer(surname, othernames, rank, contract)" +
                            "VALUES ('" + surnameField + "', '" + othernamesField + "', " +
                            "'" + rankField + "', '" + contractField + "')";
-            try
-            {
-                using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
-                {
-                    command.ExecuteNonQuery(); //execute database command
-                    MessageBox.Show(@"Successfully added!", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
 
-            }
-            catch (Exception ex)
+            string message = String.Format("Add {0} {1} to records?", surnameField, othernamesField);
+            DialogResult dialog = MessageBox.Show(message, @"Addition", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
             {
-                MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                database.CloseConnection();
+                try
+                {
+                    using (SQLiteCommand command = new SQLiteCommand(statement, database.connection))
+                    {
+                        command.ExecuteNonQuery(); //execute database command
+                        MessageBox.Show(@"Successfully added!", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    database.CloseConnection();
+                }
+                searchSeafarer();
+                makeEmpty();
             }
             database.CloseConnection(); //close connection
-            searchSeafarer();
-            makeEmpty();        
         }
 
         /*******************************************
@@ -150,8 +155,8 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                     MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 searchSeafarer();
-                database.CloseConnection();
             }
+            database.CloseConnection();
         }
 
         
