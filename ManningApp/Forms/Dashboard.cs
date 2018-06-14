@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ManningApp.Dashboard_UserControls;
 
 namespace ManningApp
 {
@@ -33,24 +34,9 @@ namespace ManningApp
 
         private void DashboardForm_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseDown)
-            {
-                Location = new Point(Location.X - lastLocation.X
-                                     + e.X, Location.Y - lastLocation.Y + e.Y);
-                Update();
-            }
+
         }
 
-
-        private void btnClose_MouseEnter(object sender, EventArgs e)
-        {
-            btnClose.BackColor = Color.Red;
-        }
-
-        private void btnClose_MouseLeave(object sender, EventArgs e)
-        {
-            btnClose.BackColor = Color.Transparent;
-        }
 
 
         //close button event
@@ -82,6 +68,7 @@ namespace ManningApp
             btnSeafarer.BackColor = sideDefault;
             btnVessel.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
+
         }
 
         private void btnPlan_Click(object sender, EventArgs e)
@@ -96,6 +83,7 @@ namespace ManningApp
             btnSeafarer.BackColor = sideDefault;
             btnVessel.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
+
         }
 
         private void btnView_Click(object sender, EventArgs e)
@@ -110,6 +98,7 @@ namespace ManningApp
             btnSeafarer.BackColor = sideDefault;
             btnVessel.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
+
         }
 
         private void btnSeafarer_Click(object sender, EventArgs e)
@@ -124,6 +113,8 @@ namespace ManningApp
             btnView.BackColor = sideDefault;
             btnVessel.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
+
+            seafarerControl1.BringToFront();
         }
 
         private void btnVessel_Click(object sender, EventArgs e)
@@ -138,6 +129,8 @@ namespace ManningApp
             btnView.BackColor = sideDefault;
             btnSeafarer.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
+
+            vesselControl1.BringToFront();
         }
 
         private void btnRank_Click(object sender, EventArgs e)
@@ -152,6 +145,8 @@ namespace ManningApp
             btnView.BackColor = sideDefault;
             btnSeafarer.BackColor = sideDefault;
             btnVessel.BackColor = sideDefault;
+
+            rankControl1.BringToFront();
         }
     }
 }
