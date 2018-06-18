@@ -34,7 +34,6 @@ namespace ManningApp
 
         private void DashboardForm_MouseMove(object sender, MouseEventArgs e)
         {
-
         }
 
 
@@ -84,6 +83,7 @@ namespace ManningApp
             btnVessel.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
 
+            planControl1.BringToFront();
         }
 
         private void btnView_Click(object sender, EventArgs e)
@@ -99,6 +99,7 @@ namespace ManningApp
             btnVessel.BackColor = sideDefault;
             btnRank.BackColor = sideDefault;
 
+            viewControl1.BringToFront();
         }
 
         private void btnSeafarer_Click(object sender, EventArgs e)

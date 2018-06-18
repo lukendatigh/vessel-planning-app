@@ -47,6 +47,8 @@
             this.rankControl1 = new ManningApp.Dashboard_UserControls.RankControl();
             this.vesselControl1 = new ManningApp.Dashboard_UserControls.VesselControl();
             this.seafarerControl1 = new ManningApp.Dashboard_UserControls.Seafarer.SeafarerControl();
+            this.viewControl1 = new ManningApp.Dashboard_UserControls.ViewControl();
+            this.planControl1 = new ManningApp.Dashboard_UserControls.PlanControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -269,11 +271,27 @@
             this.seafarerControl1.Size = new System.Drawing.Size(800, 520);
             this.seafarerControl1.TabIndex = 7;
             // 
+            // viewControl1
+            // 
+            this.viewControl1.Location = new System.Drawing.Point(183, 46);
+            this.viewControl1.Name = "viewControl1";
+            this.viewControl1.Size = new System.Drawing.Size(770, 550);
+            this.viewControl1.TabIndex = 8;
+            // 
+            // planControl1
+            // 
+            this.planControl1.Location = new System.Drawing.Point(183, 46);
+            this.planControl1.Name = "planControl1";
+            this.planControl1.Size = new System.Drawing.Size(770, 550);
+            this.planControl1.TabIndex = 9;
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 600);
+            this.Controls.Add(this.planControl1);
+            this.Controls.Add(this.viewControl1);
             this.Controls.Add(this.seafarerControl1);
             this.Controls.Add(this.vesselControl1);
             this.Controls.Add(this.rankControl1);
@@ -315,5 +333,7 @@
         private Dashboard_UserControls.RankControl rankControl1;
         private Dashboard_UserControls.VesselControl vesselControl1;
         private Dashboard_UserControls.Seafarer.SeafarerControl seafarerControl1;
+        private Dashboard_UserControls.ViewControl viewControl1;
+        private Dashboard_UserControls.PlanControl planControl1;
     }
 }
