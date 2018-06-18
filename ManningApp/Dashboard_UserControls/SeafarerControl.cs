@@ -155,8 +155,10 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
                     MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 searchSeafarer();
+                makeEmpty();
             }
             database.CloseConnection();
+
         }
 
         

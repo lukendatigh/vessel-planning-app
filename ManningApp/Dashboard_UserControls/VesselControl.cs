@@ -159,6 +159,7 @@ namespace ManningApp.Dashboard_UserControls
                         command.ExecuteNonQuery(); //execute database command
                         MessageBox.Show(@"Successfully Deleted!", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         searchVessel();
+                        makeEmpty();
                     }
                 }
                 catch (Exception ex)
@@ -167,6 +168,7 @@ namespace ManningApp.Dashboard_UserControls
                 }
             }
             database.CloseConnection();
+            
         }
 
         
