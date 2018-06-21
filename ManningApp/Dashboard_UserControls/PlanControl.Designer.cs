@@ -47,6 +47,7 @@
             this.surnameBox_signOn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.signOffTab = new System.Windows.Forms.TabPage();
+            this.currentVesselBox_signOff = new System.Windows.Forms.TextBox();
             this.dateTimePicker_signOff = new System.Windows.Forms.DateTimePicker();
             this.rankBox_signOff = new System.Windows.Forms.TextBox();
             this.errorMessage_signOff = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.surnameBox_signOff = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.suggestionsTab = new System.Windows.Forms.TabPage();
-            this.btnRefresh_signOff = new System.Windows.Forms.Button();
             this.PlanTabControl.SuspendLayout();
             this.signOnTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.seafarerGridView_signOn)).BeginInit();
@@ -124,12 +124,14 @@
             // 
             this.dateTimePicker_signOn.CalendarFont = new System.Drawing.Font("Segoe UI", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_signOn.Checked = false;
+            this.dateTimePicker_signOn.CustomFormat = "dd-MM-yyyy";
             this.dateTimePicker_signOn.Font = new System.Drawing.Font("Segoe UI", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker_signOn.Location = new System.Drawing.Point(318, 436);
+            this.dateTimePicker_signOn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_signOn.Location = new System.Drawing.Point(319, 437);
             this.dateTimePicker_signOn.MaxDate = new System.DateTime(2199, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker_signOn.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker_signOn.Name = "dateTimePicker_signOn";
-            this.dateTimePicker_signOn.Size = new System.Drawing.Size(245, 25);
+            this.dateTimePicker_signOn.Size = new System.Drawing.Size(244, 25);
             this.dateTimePicker_signOn.TabIndex = 50;
             // 
             // rankBox_signOn
@@ -147,11 +149,11 @@
             this.btnRefresh_signOn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
             this.btnRefresh_signOn.FlatAppearance.BorderSize = 0;
             this.btnRefresh_signOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh_signOn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh_signOn.Font = new System.Drawing.Font("Segoe UI", 7.68932F, System.Drawing.FontStyle.Bold);
             this.btnRefresh_signOn.ForeColor = System.Drawing.Color.White;
             this.btnRefresh_signOn.Location = new System.Drawing.Point(592, 31);
             this.btnRefresh_signOn.Name = "btnRefresh_signOn";
-            this.btnRefresh_signOn.Size = new System.Drawing.Size(88, 30);
+            this.btnRefresh_signOn.Size = new System.Drawing.Size(88, 22);
             this.btnRefresh_signOn.TabIndex = 48;
             this.btnRefresh_signOn.Text = "Refresh";
             this.btnRefresh_signOn.UseVisualStyleBackColor = false;
@@ -180,6 +182,7 @@
             this.btnSignOn.TabIndex = 46;
             this.btnSignOn.Text = "Sign On";
             this.btnSignOn.UseVisualStyleBackColor = false;
+            this.btnSignOn.Click += new System.EventHandler(this.btnSignOn_Click);
             // 
             // idBox_signOn
             // 
@@ -230,6 +233,7 @@
             this.seafarerGridView_signOn.ShowRowErrors = false;
             this.seafarerGridView_signOn.Size = new System.Drawing.Size(652, 251);
             this.seafarerGridView_signOn.TabIndex = 41;
+            this.seafarerGridView_signOn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.seafarerGridView_signOn_CellClick);
             // 
             // label4
             // 
@@ -293,6 +297,7 @@
             // 
             // signOffTab
             // 
+            this.signOffTab.Controls.Add(this.currentVesselBox_signOff);
             this.signOffTab.Controls.Add(this.dateTimePicker_signOff);
             this.signOffTab.Controls.Add(this.rankBox_signOff);
             this.signOffTab.Controls.Add(this.errorMessage_signOff);
@@ -307,7 +312,6 @@
             this.signOffTab.Controls.Add(this.othernamesBox_signOff);
             this.signOffTab.Controls.Add(this.surnameBox_signOff);
             this.signOffTab.Controls.Add(this.label9);
-            this.signOffTab.Controls.Add(this.btnRefresh_signOff);
             this.signOffTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.68932F);
             this.signOffTab.Location = new System.Drawing.Point(4, 30);
             this.signOffTab.Name = "signOffTab";
@@ -318,12 +322,24 @@
             this.signOffTab.ToolTipText = "sign off seafarer to leave";
             this.signOffTab.UseVisualStyleBackColor = true;
             // 
+            // currentVesselBox_signOff
+            // 
+            this.currentVesselBox_signOff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.currentVesselBox_signOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentVesselBox_signOff.Location = new System.Drawing.Point(319, 405);
+            this.currentVesselBox_signOff.Name = "currentVesselBox_signOff";
+            this.currentVesselBox_signOff.ReadOnly = true;
+            this.currentVesselBox_signOff.Size = new System.Drawing.Size(245, 22);
+            this.currentVesselBox_signOff.TabIndex = 66;
+            // 
             // dateTimePicker_signOff
             // 
             this.dateTimePicker_signOff.CalendarFont = new System.Drawing.Font("Segoe UI", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_signOff.Checked = false;
+            this.dateTimePicker_signOff.CustomFormat = "dd-MM-yyyy";
             this.dateTimePicker_signOff.Font = new System.Drawing.Font("Segoe UI", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker_signOff.Location = new System.Drawing.Point(319, 403);
+            this.dateTimePicker_signOff.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_signOff.Location = new System.Drawing.Point(319, 437);
             this.dateTimePicker_signOff.MaxDate = new System.DateTime(2199, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker_signOff.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker_signOff.Name = "dateTimePicker_signOff";
@@ -357,18 +373,19 @@
             this.btnSignOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignOff.Font = new System.Drawing.Font("Segoe UI Semibold", 11.18447F, System.Drawing.FontStyle.Bold);
             this.btnSignOff.ForeColor = System.Drawing.Color.White;
-            this.btnSignOff.Location = new System.Drawing.Point(592, 349);
+            this.btnSignOff.Location = new System.Drawing.Point(592, 351);
             this.btnSignOff.Name = "btnSignOff";
-            this.btnSignOff.Size = new System.Drawing.Size(88, 50);
+            this.btnSignOff.Size = new System.Drawing.Size(88, 76);
             this.btnSignOff.TabIndex = 61;
             this.btnSignOff.Text = "Sign Off";
             this.btnSignOff.UseVisualStyleBackColor = false;
+            this.btnSignOff.Click += new System.EventHandler(this.btnSignOff_Click);
             // 
             // idBox_signOff
             // 
             this.idBox_signOff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.idBox_signOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.68932F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idBox_signOff.Location = new System.Drawing.Point(592, 407);
+            this.idBox_signOff.Location = new System.Drawing.Point(592, 439);
             this.idBox_signOff.Name = "idBox_signOff";
             this.idBox_signOff.ReadOnly = true;
             this.idBox_signOff.Size = new System.Drawing.Size(88, 20);
@@ -380,7 +397,7 @@
             this.searchBox_signOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBox_signOff.Location = new System.Drawing.Point(28, 31);
             this.searchBox_signOff.Name = "searchBox_signOff";
-            this.searchBox_signOff.Size = new System.Drawing.Size(443, 22);
+            this.searchBox_signOff.Size = new System.Drawing.Size(536, 22);
             this.searchBox_signOff.TabIndex = 59;
             // 
             // btnSearch_signOff
@@ -390,7 +407,7 @@
             this.btnSearch_signOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch_signOff.Font = new System.Drawing.Font("Segoe UI", 7.68932F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch_signOff.ForeColor = System.Drawing.Color.White;
-            this.btnSearch_signOff.Location = new System.Drawing.Point(475, 31);
+            this.btnSearch_signOff.Location = new System.Drawing.Point(591, 31);
             this.btnSearch_signOff.Name = "btnSearch_signOff";
             this.btnSearch_signOff.Size = new System.Drawing.Size(88, 22);
             this.btnSearch_signOff.TabIndex = 58;
@@ -413,6 +430,7 @@
             this.seafarerGridView_signOff.ShowRowErrors = false;
             this.seafarerGridView_signOff.Size = new System.Drawing.Size(652, 251);
             this.seafarerGridView_signOff.TabIndex = 57;
+            this.seafarerGridView_signOff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.seafarerGridView_signOff_CellClick);
             // 
             // label6
             // 
@@ -420,9 +438,9 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.786407F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(315, 381);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 19);
+            this.label6.Size = new System.Drawing.Size(243, 19);
             this.label6.TabIndex = 56;
-            this.label6.Text = "Sign Off Date";
+            this.label6.Text = "Current vessel and select sign-off date";
             // 
             // label7
             // 
@@ -485,20 +503,6 @@
             this.suggestionsTab.Text = "Suggestions";
             this.suggestionsTab.UseVisualStyleBackColor = true;
             // 
-            // btnRefresh_signOff
-            // 
-            this.btnRefresh_signOff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(140)))), ((int)(((byte)(108)))));
-            this.btnRefresh_signOff.FlatAppearance.BorderSize = 0;
-            this.btnRefresh_signOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh_signOff.Font = new System.Drawing.Font("Segoe UI Semibold", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh_signOff.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh_signOff.Location = new System.Drawing.Point(592, 31);
-            this.btnRefresh_signOff.Name = "btnRefresh_signOff";
-            this.btnRefresh_signOff.Size = new System.Drawing.Size(88, 30);
-            this.btnRefresh_signOff.TabIndex = 63;
-            this.btnRefresh_signOff.Text = "Refresh";
-            this.btnRefresh_signOff.UseVisualStyleBackColor = false;
-            // 
             // PlanControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -506,6 +510,7 @@
             this.Controls.Add(this.PlanTabControl);
             this.Name = "PlanControl";
             this.Size = new System.Drawing.Size(770, 550);
+            this.Load += new System.EventHandler(this.PlanControl_Load);
             this.PlanTabControl.ResumeLayout(false);
             this.signOnTab.ResumeLayout(false);
             this.signOnTab.PerformLayout();
@@ -553,6 +558,6 @@
         private System.Windows.Forms.TextBox surnameBox_signOff;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboVesselName_signOn;
-        private System.Windows.Forms.Button btnRefresh_signOff;
+        private System.Windows.Forms.TextBox currentVesselBox_signOff;
     }
 }
