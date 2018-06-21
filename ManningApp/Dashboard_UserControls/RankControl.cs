@@ -24,6 +24,10 @@ namespace ManningApp.Dashboard_UserControls
             tooltip.SetToolTip(comboRankType, "select rank type");
             tooltip.SetToolTip(comboDaysOn, "select days onboard for rank");
             tooltip.SetToolTip(comboDaysOff, "select days onshore for rank");
+
+            btnAddRank.Enabled = false;
+            btnUpdateRank.Enabled = false;
+            btnDeleteRank.Enabled = false;
         }
 
         /*******************************************
@@ -184,6 +188,10 @@ namespace ManningApp.Dashboard_UserControls
         {
             btnRefresh.Enabled = false;
             loadComboBoxData();
+
+            btnAddRank.Enabled = true;
+            btnUpdateRank.Enabled = true;
+            btnDeleteRank.Enabled = true;
         }
         
 

@@ -23,6 +23,10 @@ namespace ManningApp.Dashboard_UserControls
             tooltip.SetToolTip(typeBox, "enter vessel type");
             tooltip.SetToolTip(comboManningOfficer, "select manning officer");
             tooltip.SetToolTip(fleetBox, "enter fleet");
+
+            btnAddVessel.Enabled = false;
+            btnUpdateVessel.Enabled = false;
+            btnDeleteVessel.Enabled = false;
         }
 
         /*******************************************
@@ -108,10 +112,10 @@ namespace ManningApp.Dashboard_UserControls
         private void btnUpdateVessel_Click(object sender, EventArgs e)
         {
             string idText = idBox.Text;
-            string nameText = nameBox.Text;
-            string typeText = typeBox.Text;
+            string nameText = nameBox.Text.Trim();
+            string typeText = typeBox.Text.Trim();
             string manningOfficerText = comboManningOfficer.Text;
-            string fleetText = fleetBox.Text;
+            string fleetText = fleetBox.Text.Trim();
             Database database = new Database();
             database.OpenConnection();
 
@@ -225,6 +229,10 @@ namespace ManningApp.Dashboard_UserControls
         {
             loadManningOfficerComboboxData();
             btnRefresh.Enabled = false;
+
+            btnAddVessel.Enabled = true;
+            btnUpdateVessel.Enabled = true;
+            btnDeleteVessel.Enabled = true;
         }
 
         private void makeEmpty()

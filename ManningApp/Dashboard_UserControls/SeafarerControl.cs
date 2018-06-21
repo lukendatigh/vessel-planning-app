@@ -98,10 +98,10 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
         private void btnUpdateSeafarer_Click(object sender, EventArgs e)
         {
             string idText = idBox.Text;
-            string surnameText = surnameBox.Text;
-            string othernamesText = othernamesBox.Text;
+            string surnameText = surnameBox.Text.Trim();
+            string othernamesText = othernamesBox.Text.Trim();
             string rankText = comboRank.Text;
-            string contractText = contractBox.Text;
+            string contractText = contractBox.Text.Trim();
             Database database = new Database();
             database.OpenConnection();
 
@@ -234,13 +234,22 @@ namespace ManningApp.Dashboard_UserControls.Seafarer
             tooltip.SetToolTip(comboRank, "select seafarer's current rank");
             tooltip.SetToolTip(contractBox, "enter seafarer's current contract");
 
-            
+            btnAddSeafarer.Enabled = false;
+            btnUpdateSeafarer.Enabled = false;
+            btnDeleteSeafarer.Enabled = false;
+
+
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             loadRankComboboxData(); //load data to rank combobox
             btnRefresh.Enabled = false;
+
+            btnAddSeafarer.Enabled = true;
+            btnUpdateSeafarer.Enabled = true;
+            btnDeleteSeafarer.Enabled = true;
+
         }
     }
 }
