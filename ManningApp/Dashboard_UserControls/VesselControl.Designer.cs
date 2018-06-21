@@ -55,7 +55,7 @@
             this.btnAddVessel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddVessel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddVessel.ForeColor = System.Drawing.Color.White;
-            this.btnAddVessel.Location = new System.Drawing.Point(602, 293);
+            this.btnAddVessel.Location = new System.Drawing.Point(619, 293);
             this.btnAddVessel.Name = "btnAddVessel";
             this.btnAddVessel.Size = new System.Drawing.Size(88, 30);
             this.btnAddVessel.TabIndex = 44;
@@ -70,7 +70,7 @@
             this.btnDeleteVessel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteVessel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteVessel.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteVessel.Location = new System.Drawing.Point(602, 365);
+            this.btnDeleteVessel.Location = new System.Drawing.Point(619, 365);
             this.btnDeleteVessel.Name = "btnDeleteVessel";
             this.btnDeleteVessel.Size = new System.Drawing.Size(88, 30);
             this.btnDeleteVessel.TabIndex = 43;
@@ -82,7 +82,7 @@
             // 
             this.idBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.idBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.68932F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idBox.Location = new System.Drawing.Point(602, 488);
+            this.idBox.Location = new System.Drawing.Point(619, 488);
             this.idBox.Name = "idBox";
             this.idBox.ReadOnly = true;
             this.idBox.Size = new System.Drawing.Size(88, 20);
@@ -92,7 +92,7 @@
             // 
             this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBox.Location = new System.Drawing.Point(38, 42);
+            this.searchBox.Location = new System.Drawing.Point(55, 42);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(443, 22);
             this.searchBox.TabIndex = 41;
@@ -104,7 +104,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 7.68932F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(485, 42);
+            this.btnSearch.Location = new System.Drawing.Point(502, 42);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(88, 22);
             this.btnSearch.TabIndex = 40;
@@ -121,7 +121,7 @@
             this.vesselGridView.CausesValidation = false;
             this.vesselGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.vesselGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.vesselGridView.Location = new System.Drawing.Point(38, 76);
+            this.vesselGridView.Location = new System.Drawing.Point(55, 76);
             this.vesselGridView.Name = "vesselGridView";
             this.vesselGridView.ReadOnly = true;
             this.vesselGridView.ShowCellErrors = false;
@@ -137,7 +137,7 @@
             this.btnUpdateVessel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateVessel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateVessel.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateVessel.Location = new System.Drawing.Point(602, 329);
+            this.btnUpdateVessel.Location = new System.Drawing.Point(619, 329);
             this.btnUpdateVessel.Name = "btnUpdateVessel";
             this.btnUpdateVessel.Size = new System.Drawing.Size(88, 30);
             this.btnUpdateVessel.TabIndex = 38;
@@ -149,7 +149,7 @@
             // 
             this.fleetBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fleetBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fleetBox.Location = new System.Drawing.Point(329, 488);
+            this.fleetBox.Location = new System.Drawing.Point(346, 488);
             this.fleetBox.Name = "fleetBox";
             this.fleetBox.Size = new System.Drawing.Size(245, 22);
             this.fleetBox.TabIndex = 37;
@@ -158,7 +158,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.786407F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(325, 465);
+            this.label4.Location = new System.Drawing.Point(342, 465);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 19);
             this.label4.TabIndex = 36;
@@ -168,7 +168,7 @@
             // 
             this.comboManningOfficer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboManningOfficer.FormattingEnabled = true;
-            this.comboManningOfficer.Location = new System.Drawing.Point(38, 487);
+            this.comboManningOfficer.Location = new System.Drawing.Point(55, 487);
             this.comboManningOfficer.Name = "comboManningOfficer";
             this.comboManningOfficer.Size = new System.Drawing.Size(243, 24);
             this.comboManningOfficer.TabIndex = 35;
@@ -177,7 +177,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.786407F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 465);
+            this.label3.Location = new System.Drawing.Point(51, 465);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 19);
             this.label3.TabIndex = 34;
@@ -187,7 +187,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.786407F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(325, 412);
+            this.label1.Location = new System.Drawing.Point(342, 412);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 19);
             this.label1.TabIndex = 33;
@@ -197,7 +197,7 @@
             // 
             this.typeBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.typeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeBox.Location = new System.Drawing.Point(329, 435);
+            this.typeBox.Location = new System.Drawing.Point(346, 435);
             this.typeBox.Name = "typeBox";
             this.typeBox.Size = new System.Drawing.Size(245, 22);
             this.typeBox.TabIndex = 32;
@@ -206,7 +206,7 @@
             // 
             this.nameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameBox.Location = new System.Drawing.Point(38, 433);
+            this.nameBox.Location = new System.Drawing.Point(55, 433);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(245, 22);
             this.nameBox.TabIndex = 31;
@@ -215,7 +215,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.786407F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 411);
+            this.label2.Location = new System.Drawing.Point(51, 411);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 19);
             this.label2.TabIndex = 30;
@@ -228,7 +228,7 @@
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9.786407F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(602, 42);
+            this.btnRefresh.Location = new System.Drawing.Point(619, 42);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(88, 30);
             this.btnRefresh.TabIndex = 45;
@@ -240,7 +240,7 @@
             // 
             this.errorMessage.AutoSize = true;
             this.errorMessage.ForeColor = System.Drawing.Color.DarkRed;
-            this.errorMessage.Location = new System.Drawing.Point(600, 266);
+            this.errorMessage.Location = new System.Drawing.Point(617, 266);
             this.errorMessage.Name = "errorMessage";
             this.errorMessage.Size = new System.Drawing.Size(0, 13);
             this.errorMessage.TabIndex = 46;
