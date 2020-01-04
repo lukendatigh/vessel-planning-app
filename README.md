@@ -9,7 +9,7 @@ A desktop vessel manning app implemented in C# using Winforms and SQLite3
 5. `Query and sort ranks` (by seatime)  
 6. `On-sign` and `off-sign` seafarer to and from a vessel
 7. `Match` seafarers *who are due for sign off* with those *who are due for signin*, with an allowance of a *5-day offset*
-8. Implement `officers' matrix` where no *Captain* and *1st Officer*, or *1st Engineer* and *2nd Engineer* have a cummulative seatime less than 36 months
+8. `Automate Officers' matrix` calculation where no *Captain* and *1st Officer*, or *1st Engineer* and *2nd Engineer* have a cummulative seatime less than 36 months
 9. `Notify` manning officer (user) of a signoff or signon that has been due for more than *3 days*
 
 #### Note:
